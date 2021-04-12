@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            注意：虽然table是块元素，但是table与普通块元素不同在于
+            table的宽度是内容撑开的，普通块元素宽度就是100%
+         */
+         table{
+             width: 50%;
+             border:1px solid #000;
+             /* 边框之间的距离
+                距离为0 边框挨在一起2px
+              */
+             border-spacing: 0;
+             /* 设置边框的合并 1px */
+             border-collapse:collapse;
+         }
+         td{
+            border:1px solid #000;
+            /* 默认情况下td内的元素垂直居中
+                通过verticl-align可以修改
+                注意，td中除了文字，还有别的元素也可以通过vertical-align修改
+                其他的标签只能修改文字
+                应用：将别的元素display设置为table-cell
+                那么就可以通过vertical-align来修改本来不能修改的元素的垂直位置
+                注意：只有vertical-align，且只能修改垂直的距离
+             */
+            vertical-align: middle;
+            text-align: center;
+         }
+         tr:nth-child(2n){
+             background-color: #bfa;
+             /* 隔行变色
+                伪元素选择器
+              */
+         }
+
+         /* 
+            如果表格中没有使用tbody使用了tr
+            浏览器会自动将tbody加上并且称为tr的父元素
+            所以tr将不再是table的子元素，而是tbody的子元素
+            table > tr选不中
+            tbody > tr才是正确的
+          */
+        tbody> tr:nth-child(2n+1){
+             background-color: wheat;
+         }
+         .box{
+             width: 300px;
+             height: 300px;
+             background-color: wheat;
+             /* 父元素设置为单元格 */
+             display: table-cell;
+             vertical-align: middle;
+         }
+         .in{
+             width: 100px;
+             height: 100px;
+             background-color: whitesmoke;
+             /* 父元素通过table使子元素垂直居中
+                但是子元素如果想要水平居中还是要靠margin
+              */
+              margin: 0 auto;
+         }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <!-- td行内元素 -->
+            <td>学号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+            <td>住址</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>18</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>唐僧</td>
+            <td>男</td>
+            <td>28</td>
+            <td>女儿国</td>
+        </tr>
+        
+
+    </table>
+    <div class="box">
+        <div class="in"></div>
+    </div>
+</body>
+</html>

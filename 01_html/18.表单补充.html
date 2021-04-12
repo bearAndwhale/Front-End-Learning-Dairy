@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="target.html">
+        <!-- 
+            autocomplete
+                开启或关闭是否自动补全
+                放在form对所有input生效
+                放在具体一个input，只对那一个生效
+            readonly
+                只读 数据会提交
+            disabled
+                禁用 数据不会提交
+            autofocus
+                设置表单项自动获取焦点
+            
+         -->
+        <input type="text" name="username" value="hello" autocomplete="off" readonly>
+        <br><br>
+        <input type="submit" value="注册">
+        <br><br>
+        <!-- 普通按钮 -->
+        <input type="button" value="按钮">
+        <br><br>
+        <!-- 重置按钮 -->
+        <input type="reset" value="重置">
+        <br><br>
+        <!-- 颜色 -->
+        <input type="color" name="color" >
+        <br><br>
+        <!-- 邮箱 会识别邮箱是否合法-->
+        <input type="email" name="email" autofocus>
+        <br><br>
+        <!-- button用得更多 -->
+        <button>按钮</button>
+    </form>
+</body>
+</html>

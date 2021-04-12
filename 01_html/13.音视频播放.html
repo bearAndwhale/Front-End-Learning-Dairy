@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+    </head>
+    <body>
+        <!-- 
+            audio 引入音频
+                -src
+            video 引入视频
+                -src
+                -还可以通过source指定路径，可以用source指定多个文件，优先使用第一个
+                 有效解决了视频格式兼容性问题
+            引入后,默认不能让用户操作
+                -controls 是否允许用户播放 有就可以控制，没有就不可以
+                -autoplay 是否自动播放 有就可以自动播放
+                    -如果设置了autoplay 在打开页面时会自动播放，但是大部分浏览器不会自动播放
+                -loop 是否循环播放
+
+         -->
+        <!-- <video src="IMG_8508.mp4" width="500" height="1080" controls loop></video> -->
+        <video controls>
+            对不起，浏览器版本不支持
+            <source src="IMG_8508.mp4">
+            <embed src="IMG_8508.mp4" type="vidio/mp4" width="500" height="1080">
+        </video>
+        <!-- 以上两个效果相同 -->
+    </body>
+</html>

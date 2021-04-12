@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单：
+            - 现实生活中，表单用于提交数据
+            - 在网页中也可以使用表单，用于将本地数据提交给服务器
+            - 使用form创建表单
+     -->
+     <!-- 
+         form中必须要有的属性：action 指定要提交的服务器地址
+      -->
+      <form action="target.html">
+          <!-- 添加表单项 -->
+          <!-- 
+              文本框
+              input：inline-block元素
+              注意：
+              数据要提交到服务器，必须设置name属性值
+           -->
+          文本框<input type="text" name="hello">
+          <br><br>
+           <!-- 密码框 -->
+          密码框<input type="password" name="pwd" >
+          <br><br>
+          <!-- 
+              单选按钮
+                -必须有相同的name属性，才可以只选一个
+                -选择框，必须指定value属性，作为用户填写的值传给服务器
+                -checked 可以将单选按钮设置为默认选中，可以没有属性值，一般不写属性值
+           -->
+         
+          单选按钮
+          <input type="radio" name="oo" value="yes" checked>
+          <input type="radio" name="oo" value="no">
+          <br><br>
+          <!-- 多选框 -->
+          多选框
+          <input type="checkbox" name="duxuan" value="yes" checked>
+          <input type="checkbox" name="duxuan" value="no">
+          <input type="checkbox" name="duxuan" value="choose">
+          <br><br>
+          <!-- 
+              下拉列表
+            
+            -->
+            <select name="hah">
+                <option value="i" selected> 选项1</option>
+                <option value="ii">选项2</option>
+                <option value="iii">选项3</option>
+            </select>
+          <!-- 提交按钮 -->
+          <input type="submit" value="注册">
+
+        
+         
+      </form>
+</body>
+</html>
