@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            行高（line-height）
+                - 指的是文字占有的实际高度（一行）
+                - 通过line-height设置行高
+                - 也可以直接写一个整数，如果是整数的话，行高就是字体大小的倍数
+                    line-height:2;指两倍
+                    默认行高：1.33
+                - 行高还可以用来设置行间距：行高 - 字体高度 = 行间距
+            字体框
+                -字体框就是每个字的盒子，font-size:50px;指的就是把字写到一个高为
+                 50px的框里
+            行高在字体框的上下平均分配,故要想让文字在div中上下居中
+            就将字体框设置为和div的height一样高，就实现了
+
+
+        */
+        div{
+            /* height: 200px; */
+            font-size: 50px;
+            border:solid 1px red;
+            line-height: 200px;
+            /* 多行：height变成line-heightX行数 */
+        }
+    </style>
+</head>
+<body>
+    <div>今天天气真不错，hello今天天气真不错，hello今天天气真不错，hello</div>
+</body>
+</html>

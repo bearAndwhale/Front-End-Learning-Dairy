@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../fa/css/font-awesome.css">
+    <style>
+        /* 指定li的项目符号 */
+        ul{
+            list-style:none;
+        }
+        /* 
+            通过伪元素设置图标字体：
+            1.找到要设置的元素
+            2.使用伪元素before或after
+            3.content中是字符编码
+            4.设置字体样式
+
+        */
+        li::before{
+            /* 
+                content:图标编码
+                font-family：图标所在文件里面，给这个字体族起的名字
+                也就是css文件里font-family的值
+
+            */
+            content: '\f083';
+            font-family: 'FontAwesome';
+            color: violet;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <!-- 
+        通过实体使用图标字体
+        <span>&#x图标编号;</span>
+     -->
+     <span class="fa">&#xf083;</span>
+</body>
+</html>

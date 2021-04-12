@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            /* 
+                text-decoration 设置文本修饰
+                    none 
+                    underline
+                    line-through删除线
+                    overline:上划线
+            */
+            text-decoration:overline red;
+        }
+        .box2{
+            /* 
+                white-space 设置网页如何处理空白
+                normal 正常
+                nowrap 不换行
+                pre 保留空白
+            */
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            /* 为溢出的内容设置省略号 */
+            text-overflow: ellipsis;
+
+            /* 注意：设置省略号，上面四句缺一不可 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        今天天气真不错
+    </div>
+    <div class="box2">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, incidunt in possimus maxime libero ducimus, iusto iure inventore molestiae quam excepturi veniam omnis consequuntur quos eius illo, enim fugit cum.
+    </div>
+</body>
+</html>

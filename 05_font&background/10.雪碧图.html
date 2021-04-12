@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 128px;
+            height: 46px;
+            background-image: url('../../pic/spirit.jpg');
+            /* background-color: red; */
+        }
+        .box2{
+            width: 42px;
+            height: 30px;
+            background-image: url(../../pic/spirit.jpg);
+            background-position: -58px -338px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        将多个小图片保存到一个大图片中，
+        然后通过调整background-position来切换显示的图片
+        应用十分广泛，CSS Spirit 这种图称为雪碧图
+        使用步骤：
+        1.确定使用的图标
+        2.测量图标大小
+        3.根据测量的图标创建一个元素
+        4.设置一个偏移量显示正确的图标
+        特点：一次性将多个图片加载进页面，加快访问速度，提升用户体验
+                缩小图片大小，占内存变小 只适用于背景图
+
+     -->
+     <div class="box1">
+     </div>
+     <div class="box2"></div>
+</body>
+</html>

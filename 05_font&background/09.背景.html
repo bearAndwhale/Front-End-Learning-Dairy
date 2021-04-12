@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: firebrick;
+            /* 设置背景图片
+                background-image: url(../pic/2.jpg);
+                可以同时设置背景图片和背景颜色
+                这样背景颜色会成为背景图片的背景色 
+                - 如果背景图片大小<元素大小，默认平铺
+                - 如果背景图片>元素，将会有一部分背景无法完整显示
+                - 一样大，则正常显示
+             */
+            background-image: url(../pic/5.jpg);
+            /* 
+                 background-repeat: ;
+                 设置背景的重复方式
+                 repeat：默认值，背景沿着x,y轴平铺
+                 repeat-x:横向平铺
+                 repeat-y：纵向平铺
+                 no-repeat:不平铺
+             */
+            background-repeat:no-repeat ;
+            /* 
+                background-position
+                背景图位置
+                1.通过top bottom left right center来设置背景图片的值
+                    相当于把元素切成九宫格，用5个元素表示9个位置
+                    一般要用两个位置来表示位置，只用一个位置时，第二个位置默认为center
+                2.通过偏移量（水平，垂直）来确定位置
+                    background-position:-100px 100px;
+             */
+            background-position: top center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+</body>
+</html>

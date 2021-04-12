@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            border:1px solid red;
+            /* 
+                text-align:对齐
+                    left
+                    right
+                    center
+                    justify两端对齐
+            */
+            text-align: justify;
+            font-size: 50px;
+        }
+        span{
+            font-size: 20px;
+            border:1px blue solid;
+            /* 
+                vertical-align: ;
+                    baseline 默认值，基线对齐：底边对齐
+                    top:顶部对齐，与父元素的顶部对齐
+                    bottom:底部对齐
+                    middle:居中对齐:子元素的中线与x的中线对齐
+                    或者制定一个值
+            */
+            vertical-align:middle;
+        }
+        p{
+            border:1px red solid;
+        }
+        /* img和p底部有一条缝隙，是因为垂直基线对齐导致的 
+            解决：改变对齐方法
+        */
+        img{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel quis iusto distinctio non magni laborum veritatis beatae? Dolorem odit sit, accusantium provident sunt cumque nisi. Id obcaecati dolor ex sit?</div> -->
+    <div>今天x<span>x气hello</span>真不错</div>
+    <p>
+        <img src="../pic/1.jpg" alt="">
+    </p>
+</body>
+</html>

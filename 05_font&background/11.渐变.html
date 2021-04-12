@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: seagreen;
+            /* 
+                通过渐变可以设置一些较复杂的背景颜色，实现颜色过渡
+                渐变是图片，需要通过background-image实现
+
+                background-image: linear-gradient(to right,red,yellow);
+                    -开头to xxx指定渐变方向，默认从上往下
+                        to left/right/top/bottom/top left
+                        xxxdeg deg表示角度
+                        1turn .5turn 表示圈
+                    -线性渐变，颜色沿着一条直线发生变化
+                    -红色开头，黄色结尾，中间是过渡
+                    -渐变可以指定多个颜色，默认情况下平均分布
+                    -也可以手动分配,red 50px 纯色开始的位置
+                    50-70之间就是过渡颜色
+
+             */
+
+             /* background-image:linear-gradient(red 50px,orange 70px,yellow,blue) ; */
+             
+
+             /* 
+                background-image: repeating-linear-gradient()
+                    -重复线性渐变，可以平铺
+                    -50-100是一个渐变区间，然后其他空白部分用这个区间平铺
+                background-repeat()不会改变平铺渐变的渐变效果
+              */
+              
+              /* background-image: repeating-linear-gradient(red 50px,yellow 100px); */
+
+
+            /* background-image:radial-gradient()
+                放射渐变:中心向四周放射
+                - 默认情况下，径向渐变的形状是根据元素的形状来计算的
+                 正方形-原型
+                 长方形-椭圆形
+                -也可以手动指定渐变的范围()
+                 circle,ellipse(椭圆),100px 100px
+                - 也可以指定渐变的位置(大小at位置)
+                100px 100px at 0 0
+                 100px 100px at top center
+                -closest-side 近边
+                -farest-side 远边
+                -farthest-corner 远角
+            */
+            background-image:radial-gradient(farthest-side  at 100px 100px, red,yellow);
+            /* 重复效果的径向渐变 */
+            /* background-image:repeating-radial-gradient(100px 100px at 0 0, red,yellow); */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

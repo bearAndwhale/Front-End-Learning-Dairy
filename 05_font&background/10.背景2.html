@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 500px;
+            padding: 10px;
+            overflow: auto;
+            background-color: firebrick;
+            background-image: url(../pic/2.jpg);
+            background-repeat:no-repeat ;
+            background-position: 0 0;
+            /* 
+                默认情况下，边框下边也有背景
+                background-clip: ;
+                    border-box:默认值，背景默认情况下会出现在边框下面
+                    padding-box：背景不会出现在边框，只会出现在内容区和padding
+                    content-box:只会出现在内容区
+                backgrond-oringin:背景图片偏移量计算的原点
+                    padding-box:默认值，从内边距处开始计算
+                    content-box：从内容区开始计算
+                    border-box :从外边框开始计算
+                    
+             */
+            border:10px double black;
+            /* background-clip: content-box;
+            background-origin: border-box; */
+
+            /* 
+                background-size:width height;
+                设置图片大小
+                如果只写一个，第二个值默认为auto（比例不变，第一个值满足）
+                cover:图片比例不变，将元素铺满（会显示不全）
+                contain:图片比例不变，完整显示图片（不会铺满）
+             */
+            background-size:contain;
+        }
+        .box2{
+            width: 200px;
+            height: 2000px;
+           background-image: url(../pic/1.jpg);
+            background-color: yellow;
+            background-repeat: no-repeat;
+            background-position: 100px 100px;
+            /* 
+                background-attachment
+                设置背景图片是否跟随滚动条移动
+                scroll：默认值，背景图跟随元素移动
+                fixed:不会随元素移动
+                设置了background-attachment，背景图片的定位就是相对于视口定位
+                而不再是相对于本身元素的内边距定位
+             */
+             background-attachment: fixed;
+             /* 
+                background-color
+                background-image 
+                background-repeat
+                background-position
+                background-oringin
+                background-clip
+                background-size
+                background-attachment
+
+                - background以上所有背景属性都可以用简写属性
+
+              */
+        }
+        .box3{
+            width: 500px;
+            height: 500px;
+            padding: 20px;
+            border: 10px red double;
+            /* 
+                没有顺序要求,也没有哪个属性是必须要写的
+                注意：
+                但是size一定要写在position的后边，必须用/隔开
+                如：center center/100px
+                oringin一定在clip前边
+             */
+            background: palegoldenrod url(../pic/1.jpg) no-repeat border-box center center/100px content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo rerum necessitatibus, odio quis non vero! Itaque, quos! Officiis esse nostrum molestias quis atque, fugit alias, voluptates sapiente, eligendi facilis ratione.lo</div>
+    </div>
+    <div class="box3"></div>
+</body>
+</html>
