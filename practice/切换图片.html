@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var num = 0;
+            var img = document.getElementById("img");
+            var path = ["../pic/1.jpg","../pic/2.jpg","../pic/3.jpg","../pic/4.jpg","../pic/5.jpg"]
+            var btn = document.getElementById("btn");
+            var btn2 = document.getElementById("btn2");
+            // 全局变量保存
+            var timer;
+            /* 
+                点很多次开始每一次点击，都会开启一个定时器，点多次就会开启很多个，
+                速度会变得非常快，timer总是最新的定时器id，此时点击结束，只会关掉最新的那个定时器
+                解决：
+                1.开启定时器之前，关闭上一个已开启的
+                2.判断timer是不是undefined
+            */
+            btn.onclick = function(){
+                /* if (!timer){
+                    timer = setInterval(function(){       
+                    img.src = path[num++];
+                    num = num%path.length;//实现循环
+                },1000); */
+                clearInterval(timer);
+                timer = setInterval(function(){       
+                    img.src = path[num++];
+                    num = num%path.length;//实现循环
+                },1000);
+
+                };
+               
+                    
+            
+           
+            /* 
+                如果先按结束，timer只是声明还没有定义，是一个undefined
+                clearInterval()可以接受任何参数，如果参数是一个有效的定时器标识
+                则停止定时器，如果不是，则什么也不做。放心使用。
+            */
+            btn2.onclick = function(){
+
+                clearInterval(timer);
+            };    
+        };
+  
+        
+    </script>
+</head>
+<body>
+    <img id="img" src="../pic/1.jpg" >
+    <br>
+    <button id="btn">开始</button>
+    <button id="btn2">结束</button>
+</body>
+</html>

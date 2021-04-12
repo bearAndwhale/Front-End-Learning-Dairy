@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #to_top{
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            background-color: coral;
+            position: fixed;
+            top: 500px;
+            left: 1200px;
+            /* z-index: 99; */
+        }
+    </style>
+</head>
+<body>
+    <div id="to_top">
+        回到顶部
+    </div>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        // 瞬间回顶部
+        /* $('#to_top').click(function(){
+            $('html,body').scrollTop(0); //只能用于设置
+        }) */
+        // 动画效果（一小段变一下停一会儿）回顶部
+        /* 
+            总距离:$('html').scrollTop();
+            总时间
+            间隔时间
+
+            // 使用循环定时器不断移动，到达顶部就停止定时器
+        */
+        $('#to_top').click(function(){
+            var top = $('html').scrollTop();
+            var speed = 50;
+           var timer = setInterval(() => {
+               if(top <= 0){
+                   clearInterval(timer);
+               }
+               $('html').scrollTop((top - speed));
+               top = top - speed;
+           }, 20);
+        })
+    </script>
+</body>
+</html>

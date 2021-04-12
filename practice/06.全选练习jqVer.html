@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+    
+</head>
+<body>
+    <form method="post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选 
+        
+        <br />
+        <input type="checkbox" name="items" value="足球" />足球
+        <input type="checkbox" name="items" value="篮球" />篮球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+        <br />
+        <input type="button" id="checkedAllBtn" value="全　选" />
+        <input type="button" id="checkedNoBtn" value="全不选" />
+        <input type="button" id="checkedRevBtn" value="反　选" />
+        <input type="button" id="sendBtn" value="提　交" />
+    </form>
+    <script>
+        // 全选
+        $('#checkedAllBtn').click(function(){
+            $('input').filter('[type=checkbox]').prop('checked',true);
+        });
+        // 全不选
+        $('#checkedNoBtn').click(function(){
+            $('input').filter('[type=checkbox]').prop('checked',false);
+        });
+        // 反选
+        /* 
+            利用prop函数的参数，第二个参数可以是回调函数
+            回调函数的两个参数idx和val，idx是符合条件的对象的下标
+            val是checked这个属性的属性值，回调函数的返回值就是属性值
+        */
+        /* $('#checkedRevBtn').click(function(){   
+            $('input').filter('[name=items]').prop('checked',function(idx,val){
+            $(this).prop('checked',!$(this).prop('checked'));
+        })         
+        }); */
+        // 反选2
+        $('#checkedRevBtn').click(function(){   
+            $('input').filter('[name=items]').prop('checked',function(idx,val){
+            return !val;
+        })         
+        });
+
+        // checkAllBox
+        // 一个一个点，如果有四个，就打钩
+       $('#checkedAllBox').click(function(){
+           if($('#checkedAllBox').prop('checked')){
+                $('input').filter('[name=items]').prop('checked',true);
+           }
+           else{
+            $('input').filter('[name=items]').prop('checked',false);
+           }
+       })
+       var $items = $('input').filter('[name=items]');
+       $items.click(function(){
+        $('#checkedAllBox').prop('checked',true);
+           $items.prop('checked',function(idx,val){
+               if(!val){
+                // console.log(idx,val);
+                $('#checkedAllBox').prop('checked',false);
+               }
+           })
+       })
+        
+        
+
+       
+    </script>
+</body>
+</html>

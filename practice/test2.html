@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 200px;
+            background-color: khaki;
+            border:5px solid red;
+            border-left: none;
+            border-right: none;
+            position: relative;
+        }
+        /* 
+            当父元素高度未定义，被子元素撑开，而子元素和父元素都设置了position，
+            那么父元素会发生高度塌陷
+            此时子元素设置位置信息，相对的就不是父元素，而是向上寻找一个没有发生高度塌陷的元素
+         */
+        .top{
+            width: 300px;
+            height: 50px;
+            
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: yellow;
+            /* z-index: 9999; */
+        }
+        .location{
+            /* position: relative; */
+            background-color: lightblue;
+            float: left;
+            padding: 0 10px;
+            height: 50px;
+            top:50px;
+        }
+        .city{
+            position: absolute;
+            background-color: purple;
+            /* top:2px; */
+        }
+        .in{
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            background-color: white;
+            top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top">
+            
+            <div class="location">
+                <div class="city">北京</div>
+                <!-- <div class="in"></div> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

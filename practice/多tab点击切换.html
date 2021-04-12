@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多tab点击切换</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            clear: both;
+            display: table;
+        }
+        ul>li{
+            float: left;
+            height: 30px;
+            width: 100px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+        .container div{
+            width: 400px;
+            height: 200px;
+            position: relative;
+        }
+        span{
+            display: block;
+            width: 90%;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+        }
+        .ten{
+            background-color: #bfa;
+        }
+        .twenty{
+            background-color: coral;
+        }
+        div.twenty{
+            display: none;
+        }
+        .thirty{
+            background-color: burlywood;
+        }
+        div.thirty{
+            display: none;
+        }
+    </style>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+    //   display设为none会发生高度塌陷
+ /*        $(function(){
+            $("li.ten").click(function(){
+                $('div.ten').css('display','block');
+                $('div.twenty').css('display','none');
+                $('div.thirty').css('display','none');
+                console.log(
+                    $('div.ten').css('display'),
+                    $('div.twenty').css('display'),
+                    $('div.thirty').css('display')
+                );
+            });
+            $("li.twenty").click(function(){
+                $('div.twenty').css({'display':'block'});
+                $('div.ten').css('display','none');
+                $('div.thirty').css('display','none');
+
+                console.log(
+                    $('div.ten').css('display'),
+                    $('div.twenty').css('display'),
+                    $('div.thirty').css('display')
+                );
+            });
+            $("li.thirty").click(function(){
+                $('div.thirty').css({'display':'block'});
+                $('div.ten').css('display','none');
+                $('div.twenty').css('display','none');
+               
+                console.log(
+                    $('div.ten').css('display'),
+                    $('div.twenty').css('display'),
+                    $('div.thirty').css('display')
+                );
+            });
+                
+                
+        }); */
+        // better
+        $(function(){
+            var $contents = $('.container>div');
+            // 隐式迭代绑定监听
+           /*  $('ul>li').click(function(){
+                // 设置所有的display为none
+                $contents.css('display','none');
+                // 获取当前按钮的下标
+                var index= $(this).index();
+                // $contents[index]是js对象
+                $contents[index].style.display = 'block';
+            }) */
+
+            // 优化：隐藏显示的，显示当前的
+            $('ul>li').click(function(){
+                index = $(this).index();
+                // 寻找当前显示的下标
+                // $("$contents:visible")是错误的，选择器里面的表达式不能有jq对象
+                console.log($(".container>div:visible").css('display','none').index());
+                // 
+                $contents[index].style.display = 'block';
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li class="ten">10元套餐</li>
+            <li class="twenty">20元套餐</li>
+            <li class="thirty">30元套餐</li>
+        </ul>
+        <div class="container clearfix">
+            <div class="ten">
+                <span>
+                    10元Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ne
+                </span>
+            </div>
+            <div class="twenty">
+                <span>
+                    20元Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ne
+                </span>
+            </div>
+            <div class="thirty">
+                <span>
+                    30元Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ne  
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

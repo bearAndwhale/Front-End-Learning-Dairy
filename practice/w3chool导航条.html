@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <link rel="stylesheet" href="../reset.css">
+        <style>
+           
+            .navi{
+               
+                width: 1205px;
+                height: 48px;
+                background-color: #E8E7E3;
+               margin:100px auto;
+            }
+            ul li{
+                
+                height: 48px;   
+                float: left;   
+                /* 设置子元素垂直居中 */
+                line-height: 48px;        
+            }   
+            
+            ul li a{
+                /* 这样当鼠标触碰到一个链接所在的区域，就会变色 */
+                display: inline-block;
+                text-decoration: none;
+                text-align: center;
+                height: 48px;
+                font-size: 18px;
+                /* font-weight: bold; */
+                color: #777777;
+                padding: 0 39px;            
+               
+            }
+            /* ul li:hover{
+                background-color:#3F3F3F;
+               
+            } */
+            ul a:hover{
+                color:#E8E7E3;
+                background-color:#3F3F3F;
+            }
+        </style>
+	</head>
+	
+	<body>
+        <div class="navi">
+            <ul>
+                <li>
+                    <a href="#">HTML/CSS</a>
+                </li>
+                <li>
+                    <a href="#">Browser Side</a>
+                </li>
+                <li>
+                    <a href="#">Server Side</a>
+                </li>
+                <li>
+                    <a href="#">Programming</a>
+                </li>
+                <li>
+                    <a href="#">XML</a>
+                </li>
+                <li>
+                    <a href="#">Web Building</a>
+                </li>
+                <li class="last">
+                    <a href="#">Reference</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

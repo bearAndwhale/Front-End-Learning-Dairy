@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../font_ali/iconfont.css">
+    <style>
+        body{
+            background-color: white;
+        }
+        .wrapper{
+            width: 300px;
+            /* 高度应该被内容撑开 */
+            /* height: 426px; */
+            margin: 10px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+        }
+        img{
+            width: 100%;
+            /* 对齐 */
+            vertical-align: top;
+        }
+        h2{
+            width: 100%;
+            /* height: 25px; */
+            padding: 0 18px;
+            line-height: 25px;
+            font-size: 18px;
+            color: #717171;
+           margin:13px 0 15px 0 
+        }
+        .label,.describe,.score{
+            color: #acaaaa;
+            padding:0 25px;
+        }
+        .label{
+            /* height: 20px; */
+            margin-bottom: 25px;
+        }
+        .describe{
+            margin-bottom: 25px;
+        }
+        .line{
+            margin-bottom: 25px;
+            width: 100%;
+            border-top: 1px solid #acaaaa;
+        }
+        .star{
+            float: left;
+        }
+        .green{
+            color: #008000;
+        }
+        .weibo{
+            float: right;
+        }
+        .score{
+            /* 浮动后高度塌陷，设置高度即可 */
+            height: 46px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="img">
+            <img src="../pic/Princess.jpg" alt="">
+        </div>
+        <h2>动画电影</h1>
+        <div class="label">
+            <i class="iconfont">&#xe602;</i>
+            <span>动画</span>
+        </div>
+        <div class="describe">
+            这是一部迪士尼的电影，非常非常的好看！！！
+        </div>
+        <div class="line"></div>
+        <div class="score">
+            <div class="star">
+                <i class="iconfont green">&#xe6a1;</i>
+                <i class="iconfont green">&#xe6a1;</i>
+                <i class="iconfont starlogo">&#xe6a1;</i>
+                <i class="iconfont starlogo">&#xe6a1;</i>
+            </div>
+            <div class="weibo">
+                <i class="iconfont weibo">&#xea8c;</i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

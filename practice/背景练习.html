@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 990px;
+            height: 32px;
+            margin: 0 auto;
+            background-color: paleturquoise;
+            /* 从上到下渐变，水平不渐变
+            截取宽为1px的渐变图，用repeat横向铺开
+             */
+            background-image: url(../../pic/渐变.png);      
+            background-repeat: repeat-x;
+            /* 
+                图片属于外部资源，需要浏览器单独发送请求下载
+                浏览器加载外部资源是按需加载的，要用的时候才加载
+             */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

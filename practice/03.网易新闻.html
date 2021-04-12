@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>doc</title>
+        <link rel="stylesheet" href="../reset.css">
+        <style>
+            
+            a{
+                text-decoration: none;
+            }
+            /* 设置容器的样式
+             */
+            .sports{
+                /* 总宽高 */
+                width: 300px;
+                height:357px;
+                background-color:white;
+                /* 设置居中 */
+                margin:50px auto;
+                /* 设置上边框 */
+                border-top: 1px solid #ddd;
+            }
+            .title{
+                display: inline-block;/* 为了边框和文字宽度一致，需要将h2转换为inline-block */
+                height: 30px;
+                border-top: 1px solid red;
+                /* 通过margintop将h2上移，盖住大框的上边框 */
+                margin-top: -1px;
+                padding-top: 10px;
+            }
+            .img{
+                height: 150px;
+            }
+            .title a{
+                
+                color: #40406b;
+                /* 加粗 */
+                font-weight: bold;
+                /* 居中 :行内元素设置mt不管用，故设置title的padding*/    
+            }
+            /* 设置图片的文字效果 */
+            .img h3{
+                color:white;
+                /* 向上移动文字 */
+                margin-top: -30px;
+                font-weight: bold;
+                /* 内容居中 */
+                padding-left: 30px;
+            }
+            .news_list{
+                margin-top: 20px;
+              
+               
+            }
+            .news_list li{
+                margin-bottom: 17px;
+               
+      
+            }
+            .news_list li a{
+                font-size: 14px;
+                color: #666;
+            }
+            .news_list li a:hover{
+                color: red;
+            }
+            /* 为每一个li添加项目符号，注意项目符号与图片左对齐 */
+            .news_list li::before{
+                content: "■";
+                color: rgba(211, 211, 211, 0.787);
+                /*制造与文字之间的距离*/
+                margin-right: 4px;
+                font-size: 12px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="sports">
+            <h2 class="title">
+                <a href="#">体育</a>
+            </h2>
+            <div class="img">
+                <a href="#">
+                    <img src="../pic/w.jpg" alt="导航图">
+                    <div>
+                        <h3>詹皇成为史上最年轻35000分先生</h3>
+                    </div>
+                </a>
+            </div>
+            <ul class="news_list">
+                <li>
+                    <a href="#">最狠利指导：淡定看手表，诛心不得了</a>
+                </li>
+                <li>
+                    <a href="#">命运判她酷刑,她却举起球拍,狠狠打老天的脸</a>
+                </li>
+                <li>
+                    <a href="#">陪你过年”的CBA</a>
+                </li>
+                <li>
+                    <a href="#">19战18胜，爵士真强还是伪强？</a>
+                </li>
+            </ul>
+      </div>
+    </body>
+</html>

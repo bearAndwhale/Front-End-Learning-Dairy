@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../font_ali/iconfont.css">
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        body{
+            font-size: 14px;
+        }
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color: #999;
+        }
+        .location .red,
+        .shortcut .red{
+                    color: #f10215;
+                }
+        a{
+            text-decoration: none;
+            color: #999;
+        }
+        /* 
+            top-bar-wrapper高度由top-bar撑开
+            top-bar高度由location和shortcut撑开
+            当location和shortcut都设置float，top-bar发生高度塌陷
+            从而top-bar-wrapper发生高度塌陷
+            解决：1.设置高度 2.clearfix消除浮动带来的高度塌陷的影响
+
+
+         */
+         .clearfix::after,
+         .clearfix::before{
+             content: "";
+             clear: both;
+             display: table;
+         }
+        .top-bar-wrapper{ 
+            width:100%;
+            background-color: #E3E4E5;
+            border-bottom:1px solid #DDD ;
+            /* 文字垂直居中 */
+            line-height: 30px;  
+            /* 高度固定，避免因为current-city的border-bottom消失
+            导致的父元素高度变化 */
+            height: 30px;
+        }
+        .top-bar{
+            /* top-bar居中 */
+            margin: 0 auto;
+            width: 1190px;
+        }
+        .location{
+            float: left;   
+        } 
+        .shortcut{
+            float: right;
+        }
+        .shortcut li{
+            float: left;
+        }
+
+         .separator{
+            margin:0 3px;
+            font-size: 12px;
+        }
+       
+        a:hover{
+           color: #f10215;
+       }
+        .current-city{      
+              
+            padding: 0 10px;
+            border: 1px solid transparent;
+            /* 为了盖住city-list在current-city的那一部分边框 */
+            padding-bottom: 1px;
+            /* 不影响元素，又能提高元素层级 */
+            /* 但是兄弟元素的层级，总是后定位的比先定位的层级高
+                现在city-list层级依然比current-city高
+                设置z-index
+             */
+            position: relative;
+            z-index: 100;
+        }
+        
+        .location .city-list{
+            width: 320px;
+            height: 436px;
+            border: 1px solid rgb(204, 204, 204);
+            
+            background-color: white;
+            display: none;
+        }
+       /* 交集选择器，下拉框效果 */
+       /* 
+        这样会撑大父元素，应该让它脱离文档流
+        */
+       .location:hover .city-list{
+           display: block;
+           /* 使其脱离文档流 */
+           position: absolute;
+           box-shadow: 0 2px 2px (0,0,0,.2);
+           /* 都在顶部，相对于谁定位都可以 */
+           top: 30px;
+           /* 弹出框必须设置一个较高的层级，确保弹出时不会被盖住 */
+           z-index: 99;
+       }
+       /* 注意这里如果绑定给current-city，当鼠标移到city-list
+            current-city的移入效果就会消失
+        */
+       .location:hover .current-city{
+           background-color: #fff;
+           border: 1px solid rgb(204, 204, 204);
+           /* boder-bottom只能设置为none，如果设置为透明，
+           效果不对，具体可以实验看看 */
+           /* boeder-bottom设置为none后，大小发生变化，导致父元素也跟着变
+                解决：把current-city的父元素的高度固定
+            */
+           /* border-bottom: 1px solid transparent; */
+           border-bottom: none;
+       }
+        
+        
+       
+       
+    </style>
+</head>
+<body>
+    <div class="top-bar-wrapper">
+        <div class="top-bar clearfix">
+            <div class="location">                
+                <div class="current-city">
+                    <i class="iconfont location-icon red">&#xe602;</i>
+                     <a href="javascript:;">北京</a>
+                </div>
+                <div class="city-list"></div>
+            </div>
+            
+            <div class="shortcut">
+                <ul>
+                    <li>
+                        <a href="javascript:;">你好请登录</a>
+                        <a href="javascript:;" class="red">免费注册</a>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <a href="javascript:;">我的订单</a>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <a href="javascript:;">我的京东</a>
+                        <i class="iconfont pull-down">&#xe601;</i>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <a href="javascript:;">京东会员</a>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <span class="red">企业采购</span>
+                        <i class="iconfont pull-down">&#xe601;</i>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <span>客户服务</span>
+                        <i class="iconfont pull-down">&#xe601;</i>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <span>网站导航</span>
+                        <i class="iconfont pull-down">&#xe601;</i>
+                    </li>
+                    <li class="separator">
+                        <i class="iconfont">&#xe600;</i>
+                    </li>
+                    <li>
+                        <span>手机京东</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

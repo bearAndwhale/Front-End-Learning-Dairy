@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            top:100px;
+        }
+        #imgList{
+            list-style: none;
+        }
+        #imgList li{
+            position: absolute;
+        }
+        #imgList li:nth-child(1){
+            z-index: 1;
+        }
+        #point{
+            position: absolute;
+            bottom: 10px;
+            left:5px;
+
+            z-index: 9999;
+        }
+        #point a{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(255,255,255,0.5);
+            /* background-color: red; */
+            border:2px solid transparent;
+            /* 设置浮动才不会叠起来 */
+            float: left;
+            margin: 0 5px;  
+            /* 将背景颜色设置为内容区，边框和内边距不再有背景颜色 */
+            background-clip: content-box;
+ 
+        }
+        #point a:hover{
+            /* 加边框 点点变大 位置会变 */
+            /* 解决：所有的点点都设置透明色的边框 */
+            background-color: #fff;
+            border:2px rgb(0,255,255,0.5) solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul id="imgList">
+            <li id="img1">
+                <a href="#">
+                    <img src="../pic/3.jpg" alt="">
+                </a>
+            <li id="img2">
+                <a href="#">
+                <img src="../pic/4.jpg" alt="">
+            </li>
+            <li id="img3">
+                <a href="#">
+                <img src="../pic/5.jpg" alt="">
+            </li>
+        </ul>
+        <div id="point">
+            <a href="../pic/3.jpg"></a>
+            <a href="../pic/4.jpg"></a>
+            <a href="../pic/5.jpg"></a>
+        </div>
+    </div>
+</body>
+</html>

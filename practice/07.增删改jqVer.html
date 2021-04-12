@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        // delete
+        $(function(){
+            // 事件委派绑定点击事件
+            $('.del').delegate('a','click',delA);
+            
+            // 添加新用户
+            $('input[type=submit]').click(function(){
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var salary = $('#salary').val();
+           /*  $('.del').append('<tr></tr>');
+            $('.del tr').last().append('<td>'+name+'</td>');
+            $('.del tr').last().append('<td>'+email+'</td>');
+            $('.del tr').last().append('<td>'+salary+'</td>');
+            $('.del tr').last().append('<td><a href="javascript:;">Delete</a></td>'); */
+            // 新添加的信息绑定click响应函数
+           /*  $('.del a').last().click(delA); */
+            // 清除输入
+                /* $('#name').val('');
+                $('#email').val('');
+                $('#salary').val(''); */
+
+            // 生成tr
+            var $new_tr= $('<tr></tr>')
+            .append('<td>'+name+'</td>')
+            .append('<td>'+email+'</td>')
+            .append('<td>'+salary+'</td>')
+            .append('<td><a href="javascript:;">Delete</a></td>')
+            // tr插入tbody
+            .appendTo($('tbody'))
+            // 绑定点击事件
+            // .find('a')
+            // .click(delA);
+            // 清除输入
+            $('#name').val('');
+            $('#email').val('');
+            $('#salary').val('');
+
+            });
+            // 删除
+            function delA(){
+                if(
+                    confirm('确认删除'+$(this).parent().siblings().first().html()+'?')
+                    ){
+                    $(this).parent().parent().remove();
+                } 
+                
+            }
+            // $('a').click(delA);
+            });
+        // 添加新用户
+        
+    </script>
+    <style>
+        .del{
+            margin:50px auto;
+            border:1px black solid;
+            border-collapse: collapse;
+        }
+        td,th{
+            border:1px solid #000;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .addInfo{
+            width:300px;
+            height: 200px;
+            margin:50px auto;
+            border:1px black solid;
+            /* input也算是文本，可以使用text-align进行居中横向对齐 */
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <table class="del">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>Tom@123.com	</td>
+            <td>4300</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Anne</td>
+            <td>Anne@123.com</td>
+            <td>7500</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jenny</td>
+            <td>Jenny@123.com</td>
+            <td>12000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+    </table>
+    <div class="addInfo">
+        <h2>添加新员工</h2>
+        name: <input type="text" id="name">
+        <br>
+        email: <input type="text" id="email">
+        <br>
+        salary: <input type="text" id="salary">
+        <br>
+        <input type="submit">
+    </div>
+</body>
+</html>

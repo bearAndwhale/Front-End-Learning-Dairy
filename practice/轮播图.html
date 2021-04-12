@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <!-- 
+        轮播图设计思路:
+        设置一个div outer作为大的外部容器，相当于一个相框，width等于一张图片的大小加上图片外边距
+            -图片列表采用ul作为容器，li水平排列，ul的宽度随图片数量动态增长
+            -采用子绝父相布局，这样ul的位置参数是相对于outer的
+            -ul宽度溢出，outer overflow设置为hidden
+            -li开启float,且其余元素都开启了BFC，兄弟元素之间水平外边距不会重叠，所以outer的width = 380+10*2=400
+            -设置超链接点点，另外用一个div来装，位置设置为float，设置第一个为默认背景颜色
+        功能设计：
+            1.点击超链接点点，跳转到对应的图
+            2.每隔一秒，切换一次图片，同时改变点点背景色
+
+     -->
+    <style>
+        
+        #outer{
+            margin: 100px auto;
+            width: 400px;
+            height: 300px;
+            background-color: turquoise;
+            padding: 10px 0;
+            position: relative;
+            /* 裁剪溢出部分 */
+            overflow: hidden;
+        }
+        #imgList{
+            /* width: 1200px; */
+            /* 开启绝对定位 */
+            position: absolute;
+            /* 设置偏移量 每移动400px就显示下一张*/
+            /* left: -400px; */
+            left:0;
+            
+
+        }
+        #imgList li{
+            
+            float: left;
+            margin:0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+            left:0;
+        }
+        #navDiv a{
+            /* 设置超链接浮动 */
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            /* 透明度 */
+            opacity: 0.70;
+            /* 兼容ie8 */
+            filter: alpha(opacity = 50);
+            background-color: tomato;
+        }
+        #navDiv a:hover{
+            background-color: gray;
+        }
+
+    </style>
+    <script src="../JS/tool.js"></script>
+    <script>
+        window.onload = function(){
+            // 设置imgList的width动态随着图片增加而增大
+            var imgList = document.getElementById("imgList");
+            var img = document.getElementsByTagName("img");
+            imgList.style.width = 400 * img.length + "px";
+            // 设置超链接动态居中
+            var a = document.getElementsByTagName("a");
+            var a_width = a.length * 25 ;
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left  = (outer.offsetWidth - a_width)/2 + "px";
+            // 设置超链接默认背景色
+            var index = 0;
+            a[index].style.backgroundColor = "gray";
+
+            var timer;
+            // 开启自动切换
+            autoChange();
+            // 设置点点背景色,只能有一个是灰的
+            function setColor(){    
+                // 如果是最后一张，就设置为第一张，并且使用css改成真的第一张
+                if(index >= img.length -1){
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for(var i = 0;i < a.length;i++){
+                    /* 
+                        注意：这里如果设置了a[i].style.backgroundColor = "red";
+                        相当于修改了内联样式，那么hover效应就会消失，只能设置为一个空串，意为清除内联样式的背景色
+                        这样hover就会上去
+                    */
+                    a[i].style.backgroundColor = "";
+                } 
+                a[index].style.backgroundColor = "gray";
+            }
+
+            // 点击超链接点点，跳转到对应的图
+            for(var i = 0;i < a.length;i++){
+                // 进入循环就打tag
+                a[i].num = i;
+                a[i].onclick = function(){
+                    // 获取点击的是第几个点
+                    index = this.num;
+                    // 关闭定时器
+                    clearInterval(timer);
+                    // 修改点点
+                    setColor();
+                    // 切换图，切完再次开启
+                    moveBox(imgList,"left",50,-outer.offsetWidth * index,autoChange)  ;                                  
+                }
+            }
+            // 自动轮播
+            function autoChange(){
+                timer = setInterval(function(){
+                index++;
+                index %= img.length
+                moveBox(imgList,"left",20,-outer.offsetWidth*index,setColor);            
+            },3000)
+            }
+            
+
+        
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li>
+                <img src="../pic/3.jpg" >
+            </li>
+            <li>
+                <img src="../pic/4.jpg" >
+            </li>
+            <li>
+                <img src="../pic/5.jpg" >
+            </li>
+            <li>
+                <img src="../pic/3.jpg" >
+            </li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+
+        </div>
+    </div>
+</body>
+</html>

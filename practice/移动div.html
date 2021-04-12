@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var speed  = 10;
+           var dir = 0;//dir 控制方向
+           document.onkeydown = function(event){
+                event = event||window.event;
+                // console.log(event.keyCode)
+                // left:37 right:39 top:38 down 40
+                // 用switch case
+                // 第一下防误触总会卡一下，如何取消？控制移动的速度
+                dir = event.keyCode;               
+            };
+
+            // 设置定时器，每30ms接受一次方向并移动
+            setInterval(function(){
+                 
+                switch(dir){
+                    case 37:
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    case 38:
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+
+                }},30);
+                // onkeyup时间，松手就停（没有这个就是一个贪吃蛇）
+                document.onkeyup = function(){
+                    dir = 0;
+                };
+
+            
+        };
+        
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

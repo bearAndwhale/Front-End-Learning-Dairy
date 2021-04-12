@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <script src="../jquery-3.0.0.js"></script>
+    <style>
+        .outer{
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+            padding: 10px 0;
+            background-color: turquoise;
+            position: relative;
+            overflow: hidden;
+        } 
+        .img_List{
+            position: absolute;
+            left: 0;
+        }
+        .img_List li{
+            /* 改变对齐方式 */
+            line-height: 0;
+            float: left;
+            margin: 0 10px;
+        }
+        .navDiv{
+            position: absolute;
+            bottom: 20px;
+        }
+        .navDiv a{
+            width: 15px;
+            height: 15px;
+            float: left;
+            background-color: rgba(228, 18, 18, 0.918);
+            margin: 0 5px;
+        }
+    </style>
+    <script>
+        $(function(){
+            // 1.依据图片数量动态设置ul的宽度
+            var $img_List = $('.img_List li');
+            var len = $img_List.length;
+            var ul_width = len * 400;
+            $('.img_List').css('width',ul_width);
+
+            // 2.依据a标签个数动态设置div居中
+            var a = $('.navDiv a');
+            var div_width = a.length * 25;
+            var div_left = (400 - div_width)/2
+            $('.navDiv').css('left',div_left);
+            
+            // 给标签添加num属性
+            for(var x = 0; x < a.length;x++){
+                a[x].num = x;
+            }
+
+            var index = 0;
+            var timer;//自动切换用的定时器，手动切换时，要先关闭这个定时器，手动切换完再开始
+            // 2.1设置点点初始背景色
+            $(a[index]).css('background', 'rgba(75, 70, 70, 0.623)');
+            // 开启自动翻页
+            autoChange();
+            
+            // 3.设置自动翻页
+            // 3.1 设置翻页函数
+            // 功能：将obj按照指定速度移动到目标位置
+            // speed始终为正
+            function moveBox(obj,attr,target,speed,callback){
+                // 对于同一个属性，开启定时器之前应该结束旧的定时器，否则就会越来越快
+                clearInterval(obj.timer);
+                
+                var old_value = parseInt(obj.css(attr));
+                if(old_value > target){
+                    // 往反方向移动
+                    speed = -speed;
+                }
+                console.log(target);
+                obj.timer = setInterval(function(){
+                    old_value = parseInt(obj.css(attr));
+                    var new_value = old_value + speed;
+                    if(speed > 0 && new_value > target || speed < 0 && new_value < target)
+                    {
+                        // 当超出目标位置，要回正
+                        new_value = target;
+                    }
+                    obj.css(attr,new_value);
+                    if(new_value == target){
+                        // 到达目标位置要做的事
+                        // 结束定时器，查看是否有回调函数，有就调用
+                        clearInterval(obj.timer);
+                        callback && callback();
+                    }
+                },30)
+            }
+            // 3.2设置自动翻页函数
+            function autoChange(){   
+                timer = setInterval(function(){
+                    index++;
+                    index %= $img_List.length;//index:0,1,2,3
+                    moveBox($('.img_List'),'left',-$('.outer').innerWidth()*index,50,setColor)
+                },3000)
+            }
+            // 3.2要保证点点和翻页同步
+            /* 
+                设置一个全局变量index，用于控制翻的是哪一页，和点亮哪一个点点
+                并且判断是否翻页到了第一张图的副本页，如果是，用css改成第一页
+            */
+
+           function setColor(){
+            //    当翻到了第四张图，用css改left为0，index为0
+            console.log(index);
+                if(index >= $img_List.length - 1){
+                    $('.img_List').css('left',0);
+                    index = 0;
+                }
+                // 设置点点背景变色
+                for(var i=0;i<$img_List.length;i++){
+                    $(a[i]).css('background','rgba(228, 18, 18, 0.918)');
+                }
+                $(a[index]).css('background','rgba(75, 70, 70, 0.623)');
+           }
+        //    3.3.手动点击点点翻页
+        // 监听点点是否被点击
+        a.click(function(){
+            index = this.num;
+            clearInterval(timer);
+            setColor();
+            moveBox($('.img_List'),'left',-$('.outer').innerWidth()*index,50,setColor);
+            autoChange();
+            
+        })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <ul class="img_List">
+            <li>
+                <img src="../pic/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="../pic/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="../pic/5.jpg" alt="">
+            </li>
+            <li>
+                <img src="../pic/3.jpg" alt="">
+            </li>
+        </ul>
+        <div class="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>
