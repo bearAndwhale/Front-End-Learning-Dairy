@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color:khaki;
+            position: relative;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            position: absolute;
+            /* 元素在包含块中心 */
+            /* top: 0;
+            bottom: 0; */
+            left: 0;
+            right: 0;
+            margin: auto;
+            
+        }
+        /* 
+            水平布局
+            left+margin-left + border-left + padding-left + width + padding-right + border-right + margin-right + right
+            = 包含块的width(9个)
+
+            当我们开启绝对定位，水平方向的等式就需要添加left和right，规则和之前一样，只是多添加了两个值
+            发生过渡约束时，
+            - 如果9个值中没有auto，则自动调整right以使等式满足
+            - 如果有auto，则调整auto使等式满足
+                -可以设置auto的：margin width left right
+            - left和right的值默认为auto，则等式不满足时，会自动调整left right 以修正
+
+            绝对定位元素的布局由元素的三个因素决定：位置（top、bottom、left、right）、元素尺寸和margin。
+            绝对定位元素在布局上呈现自适应的特点——
+            位置和尺寸固定，则自适应margin值；
+            位置和margin固定，则自适应尺寸。
+
+            -绝对定位水平居中：
+                position:absolute;
+                margin:auto;
+                
+                right:0;
+                left:0;
+            - 垂直方向布局的等式也必须满足：top+margin+height+padding+border+bottom = 包含块height
+            垂直居中：
+            应该让尺寸和位置固定，自适应margin
+                margin:auto;
+                top:0;
+                bottom:0;
+         */ 
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

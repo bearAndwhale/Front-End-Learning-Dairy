@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+		<style>
+			.box1{
+				width: 200px;
+				height: 200px;
+				background-color: wheat;
+				font-size: 50px;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background-color: yellow;
+				font-size: 50px;
+				/* 
+                   固定定位：
+                    -也是一种绝对定位，大部分特点和绝对定位一样
+                    -唯一不同的是参考浏览器的视口进行定位
+                    视口：
+                    浏览器的可视窗口
+                    -固定定位的元素不会随着网页滚动条滚动（小广告）
+
+
+                 */
+				 position: fixed;
+				
+			}
+			.box3{
+				width: 200px;
+				height: 200px;
+				background-color: greenyellow;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	
+	<body>
+        <div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+    </body>
+</html>

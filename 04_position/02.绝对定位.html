@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+		<style>
+			.box1{
+				width: 200px;
+				height: 200px;
+				background-color: wheat;
+				font-size: 50px;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background-color: yellow;
+				font-size: 50px;
+				/* 
+                    绝对定位：
+                     1.开启绝对定位后，如果不设置偏移量，元素的位置不会发生变化
+                     2.开启绝对定位后，元素会从文档流中脱离
+                     3.绝对定位会改变元素的性质，行内变成块，块的宽高被内容撑开
+                     4.会提升元素的层级
+                     5.绝对定位是相对于其包含块进行定位的
+                        包含块（containing block）：
+                            正常情况下，包含块就是离当前元素最近的块元素（行内元素不可）
+                            开启绝对定位的情况下，包含块是离他最近的且开启了定位的祖先元素（可以是行内）
+                            若所有的祖先元素都没有开启定位，就相对于根元素进行定位（根元素就是包含块）
+                                html：初始包含块
+					一、css绝对定位遇到的问题？
+
+						1）设置了position:absolute的元素都会变成inline-block元素。
+
+						2）绝对定位是相对最近的 有定位的 祖先元素进行定位，若没有 有定位的 祖先元素则相对document(文档)定位。
+
+						3)  绝对定位是脱离原来的位置进行定位，会产生层级(层级提升，可以通过z-index属性设置元素的层级)
+
+						也就是说：
+
+						（1）如果父级的盒子是靠其子元素撑起来的，一旦子元素设置了position:absolute,那么父元素将不能被子元素撑起。
+
+						（2）如果设置绝对定位的元素有兄弟元素，且兄弟元素在其后面那么其兄弟元素将上升。
+
+
+
+                 */
+				 position: absolute;
+				 left: 200px;
+				 top: 10px;
+				
+			}
+			.box3{
+				width: 200px;
+				height: 200px;
+				background-color: greenyellow;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	
+	<body>
+        <div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+    </body>
+</html>

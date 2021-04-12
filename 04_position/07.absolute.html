@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        body{
+            font-size: 25px;
+            /* border-top: 10px red solid; */
+            /* padding-top: 10px; */
+            /* margin-left: 100px; */
+            /* background-color: lightseagreen; */
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            /* top: 0; */
+            /* top: 50px; */
+        }
+        #div2::before{
+            content: '';
+        }
+        #div2{
+            width: 200px;
+            height: 100px;
+            background-color: lightpink;
+            margin-top: 100px;
+            
+        }        
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* margin-top: 100px; */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+</body>
+</html>

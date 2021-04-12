@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+		<style>
+			.box1{
+				width: 200px;
+				height: 200px;
+				background-color: wheat;
+				font-size: 50px;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background-color: yellow;
+				font-size: 50px;
+				/* 
+					定位(position)
+					 - 一种更加高级的布局手段
+					 - 通过定位可以将一个元素摆放到一个页面的任意位置
+					 - 使用position属性设置定位
+					  可选值：
+					   -static 默认值，元素是静止的，没有开启定位
+					   -relative 开启元素的相对定位
+					   -absolute 绝对定位
+					   -fixed 固定定位
+					   -sticky 粘滞定位
+					-相对定位
+						-相对定位的特点
+						  1.当元素开启了相对定位却不设置偏移量，元素不会发生任何变化
+						  	偏移量（offset）
+							  通过偏移量可以改变元素的位置,开启定位才可以用
+							  	top
+								  定位元素和定位位置上边的距离
+								bottom
+								  定位元素和定位位置下边的距离
+								垂直方向的位置由以上两个属性来控制，通常只是用一个，top越大，约向下，bottom越大，越向上
+
+								left
+								  定位元素和定位位置左边的距离
+								right
+								  定位元素和定位位置右边的距离
+								定位元素水平方向的位置由以上两个属性来控制，通常指控其中一个，left越大越靠右，right越大，越靠左
+
+						  2.相对定位是参照元素在文档流中的位置进行定位的（也就是开启定位前的位置作为参照），
+						  	位置变了以后，还依然占据着原来的位置（灵魂出窍）
+						  3.相对定位可以提高元素的层次（所以可以盖住其他底层的元素）
+						  4.相对定位不会是文档脱离文档流，不会改变元素的性质，块还是块，行内还是行内
+
+				 */
+				 position: relative;
+				 left:200px;
+				 top:-200px;
+			}
+			.box3{
+				width: 200px;
+				height: 200px;
+				background-color: greenyellow;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	
+	<body>
+        <div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+    </body>
+</html>
