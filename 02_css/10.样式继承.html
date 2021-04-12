@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">                        
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            /* 
+                样式继承：
+                为一个元素设置样式，他的后代也会应用这个样式
+
+                继承发生在祖先和后代之间的
+
+                继承是为了方便开发，利用继承我们可以将一些公共的样式设置带共同的祖先元素，
+                只写一次，即可让所有的元素都有该样式
+
+                并非所有样式都会被继承
+                    布局，背景相关的元素不会被挤成继承 
+                    默认背景颜色是透明的
+                    
+                               */
+            p{
+                color: red;
+                background-color: violet;
+            }
+            div{
+                color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            我是一个p元素
+            <span>我是p的span</span>
+        </p>
+        <span> p外span</span>
+        <div>
+            我是div
+            <span>
+                我是div span
+                <em>我是span的em
+
+                </em>
+            </span>
+        </div>
+    </body>
+</html>

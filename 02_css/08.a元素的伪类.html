@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">                        
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            a:link{
+                color: red;
+                /* font-size: 50px; */
+            }
+            a:visited{
+                /* font-size: 50px; */
+                color: deeppink;
+            }
+            /* 
+                :hover 表示鼠标移入的状态
+                所有元素都可以
+             */
+             a:hover{
+                 color: deepskyblue;
+                 font-size: 50px;
+             }
+             /* 
+             :active 表示鼠标点击的效果
+             所有元素都可以
+              */
+              a:active{
+                  color: lime;
+              }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            1.没访问过的链接(link:表示正常链接)
+            2.访问过的链接(visited 由于隐私的原因，visited这个伪类只能修改颜色)
+            3.
+         -->
+        <a href="http://www.sina.com">访问过</a>
+        <br><br>
+        <a href="http://www.taobao.com">没访问过</a>
+    </body>
+</html>

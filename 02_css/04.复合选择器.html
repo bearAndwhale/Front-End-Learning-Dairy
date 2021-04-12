@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            /* 将class为red的div标签字体大小设为30px */
+            /* 
+                交集选择器
+                选中同时符合条件的元素
+                语法：选择器1选择器2选择器n{}
+                必须以元素选择器开头
+             */
+             div.red{
+                 font-size: 30px;
+             }
+             .a.b.c{
+                 color:blue;
+             }
+             /* h1和span变成绿色 */
+             /* 
+                选择器分组（并集）
+                同时选择多个选择器
+                语法：选择器1，选择器2{}
+                #b1,p,span,div.red{}
+              */
+             h1,span{
+                 color: green;
+             }
+        </style>
+    </head>
+    <body>
+     
+
+        <div class="red"> 我是div1</div>
+
+        <p class="red" >我是p</p>
+
+        <div class="red2 a b c"> 我是div2</div>
+
+        <h1>标题</h1>
+        <span>哈哈哈</span>
+
+    </body>
+</html>

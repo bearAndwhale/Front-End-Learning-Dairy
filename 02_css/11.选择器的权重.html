@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">                        
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            #box1{
+                background: chartreuse !important;
+                font-size: 30px;
+            }
+            div#box1{
+                background: blueviolet;
+            }
+            .red{
+                color: red;
+            }
+            *{
+                font-size: 20px;
+            }
+            /* 
+                样式冲突：
+                    通过不同的选择器选中相同的元素，并且对相同的样式设置不同的值，发生了样式冲突
+                发声样式冲突应该用哪个样式，由选择器决定
+
+                选择器的权重()：
+                    内联样式：1000 <div style="background-color: skyblue"></div>
+                    id 100
+                    类和伪类 10
+                    元素选择器 1
+                    通配选择器（*） 0
+                    继承的样式 没有优先级
+                比较优先级，需要将所有选择器优先级相加
+                分组选择器（div,p,span）是单独计算
+                选择器累加，不会超过其最大数量级，如11个类优先级之和为100而非110
+                优先级计算后相等，则优先使用下边的
+                !important 获取最高优先级，超过内联样式，慎用
+             */
+        </style>
+    </head>
+    <body>
+        <div id="box1" class="red">我是div <span>我是 div de span </span></div>
+    </body>
+</html>
