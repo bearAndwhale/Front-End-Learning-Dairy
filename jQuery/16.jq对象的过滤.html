@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li title="hello" class="box2">222</li>
+        <li class="box">333</li>
+        <li title="hello">444</li>
+        <li title="two"><span>555</span></li>
+    </ul>
+    <li>666</li>
+    <li>777</li>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        // ul下第一个li标签
+        // $('ul li').first().css('color','red');
+
+        // ul下最后一个li标签
+        // $('ul li').last().css('color','red');
+
+        // ul下第二个li标签
+        // $('ul li').eq(1).css('color','red');
+
+        // ul下title标签为hello的li
+        // $('ul li').filter('[title=hello]').css('color','red');
+
+        // ul下标签不为hello的li
+        // $('ul li').not('[title=hello]').css('color','red');
+
+        // ul中有span子标签的
+        $('ul li').has('span').css('color','red');
+    </script>
+</body>
+</html>

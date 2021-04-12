@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <select>
+        <option value="1">Flowers</option>
+        <option value="2" selected="selected">Gardens</option>
+        <option value="3">Trees</option>
+      </select>
+    <script>
+        // 1.显示不可用的文本输入框
+        $(':text:disabled')
+        // 2.显示选择爱好的个数
+        $(':checkbox:checked')
+        // 3.显示选择的城市名称
+        alert($('select>option:selected').html())//html是标签体的文本
+    </script>
+</body>
+</html>

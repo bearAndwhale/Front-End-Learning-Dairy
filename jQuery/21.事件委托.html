@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        绑定事件监听的问题：新添加的元素没有监听
+     -->
+     <!-- 
+         jq委托API
+         绑定
+         $(parentSelector).delegate('childrenSelector','eventType',fn)；
+         解绑
+         $(parentSelector).undelegate('eventType');
+         3.0后被废除
+         使用on
+         绑定
+         $(parentSelector).on('eventType','childrenSelector',fn)；
+        解绑
+         $(parentSelector).off('eventType')
+      -->
+     <ul>
+         <li>11</li>
+         <li>2222</li>
+         <li>2222</li>
+         <li>2222</li>
+         <li>2222</li>
+         <br>
+         
+     </ul>
+     <li>666</li>
+     <button id="btn">添加新的li</button>
+     <script src="../jquery-3.0.0.js"></script>
+     <script>
+        //  1.点击ul下的li背景就会变红
+        // 事件委托：将子元素的响应函数绑定到其共同的父元素
+        // 父元素不会直接处理事件，而是通过event.target得到发生事件的子元素（DOM元素）
+        // 通过这个子元素响应回调函数
+
+        // 原生委托
+       /*  $('ul').click(function(e){
+            // 这里的this是ul整体
+            console.log(e.target.tagName == 'LI');
+            if(e.target.tagName == 'LI'){
+               $(e.target).css('background','red');
+            }
+        }) */
+
+        // 使用jq方法委托
+        /* $('ul').delegate('li','click',function(){
+            // 这里的this是具体的li
+            console.log(this);
+            $(this).css('background','red');
+        }) */
+
+        // 使用on
+        $('ul').on('click','li',function(){
+            console.log(this);
+            $(this).css('background','red');
+        })
+        // 2.点击btn添加一个li
+        $('#btn').click(function(){
+            // console.log(11);
+            $('<li>66</li>').appendTo($('ul'));
+        })
+     </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <!-- 
+        jq对象
+        - $('选择器')
+        - $('标签字符串')
+        - $('dom')
+        - jq对象内部包含的是dom元素对象的伪数组
+        - jq对象包含很多方法属性来操作dom
+        jq对象的属性方法：
+            伪数组：
+            - size()/length 内部dom元素对象的个数
+            - [index]/get(index) 根据下标得到dom元素（不是jq对象）
+            - each()
+            - index()
+            属性/css/文档/筛选/事件/效果
+
+     -->
+     <button>测试一</button>
+     <button>测试二</button>
+     <button id='btn3'>测试三</button>
+     <button>测试四</button>
+
+     <script>
+        /* 
+            需求1：统计一共有多少个按钮
+            需求2：取出第二个button的文本
+            需求3:输出所有button标签的文本
+            需求4:输出'测试三'按钮时所有按钮的第几个
+         */
+        // 需求1：统计一共有多少个按钮
+            console.log('需求1：'+$('button').length);     
+        // 需求2：取出第二个button的文本
+            console.log('需求二'+$('button')[1].innerHTML);
+        // 需求3:输出所有button标签的文本
+            $.each($('button'),function(index,item){
+                console.log('需求2：'+item.innerHTML,this);
+            })
+        // 需求4:输出'测试三'按钮时所有按钮的第几个
+            $.each($('button'),function(index,item){
+                if(item.innerHTML == '测试三')
+                {
+                    console.log('需求三：'+(index+1));
+                }
+            })
+
+        /* 
+            伪数组：
+                Object对象
+                length属性
+                数值下标属性
+                没有数组特别的方法：如forEach，push,pop,slice...
+        */
+       console.log($('button') instanceof Array);//false
+    //    自定义一个伪数组
+       var fakeArr = {};
+       fakeArr.length = 0;
+       fakeArr[0] = 'a';
+       fakeArr.length = 1;
+    //    添加一个属性，就要手动把length加一
+        
+     </script>
+</body>
+</html>

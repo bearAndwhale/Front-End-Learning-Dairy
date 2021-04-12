@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <div id="div1" class="box">class为box的div1</div>
+    <div id="div2" class="box">class为box的div1</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br>
+    <ul>
+        <li>aaa</li>
+        <li title="hello">BBB</li>
+        <li class="box">CCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title='two'>BBB</li>
+        <li style="display: none;">我本来是隐藏的</li>
+    </ul>
+    <!-- 
+        1.选择第一个div
+        2.选择最后一个class为box的元素
+        3.选择所有class不为box的div
+        4.选择第二个和第三个li元素
+        5.选择内容为BBB的li
+        6.选择隐藏的li
+        7.选择有title属性的li
+        8.选择所有title为hello的li
+     -->
+     <script>
+        // 1.选择第一个div
+            // $('div:first').css('color','red');
+
+        // 2.选择最后一个class为box的元素
+            // $('.box:last').css('color','red');
+
+        // 3.选择所有class不为box(没有class，class为别的值)的div
+            // $('div:not(.box)').css('background','yellow')
+
+        // 4.选择第二个和第三个li元素
+        // 过滤选择器是依次执行的，先执行gt(0)以后，会重新给下标排序，所以lt参数为2
+        // 解决：先写小于再写大于
+        // $('li:gt(0):lt(2)').css('color','red');
+        //    $('li:lt(3):gt(0)').css('color','red');
+
+        // 5.选择内容为BBB的li'
+        // $('li:contains("BBB")').css('color','red');
+
+        // 6.选择隐藏的li
+        // $('li:hidden()').css('display','block');
+
+        // 7.选择有title属性的li
+        // $('li[title]').css('color','red');
+
+        // 8.选择所有title为hello的li(hello的双引号可以加也可以不加)
+        // $('li[title=hello]').css('color','red');
+     </script>
+</body>
+</html>

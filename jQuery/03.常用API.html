@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+<body>
+    <!-- 
+        基础选择器
+            - $('css选择器')
+        层级选择器
+            - $('ul > li') 子代
+            - S('ul li')      后代
+        隐式迭代
+            - jq获取的dom对象是以伪数组的方式存储的，当数组内有多个对象
+            要为这些对象进行操作（如：设置样式）时，不需要手动写循环，jq会
+            自动进行隐式迭代，自动遍历伪数组内所有的对象，执行相应的方法，简化操作
+        筛选选择器
+            - $(ul li:first) 选择第一个li
+            - $(ul li:last)
+            - $(ul li:eq(n)) 选择第n个li，注意是从0开始
+            - $(ul li:odd) 选择奇数个li
+            - $(ul li:even)
+
+     -->
+     <script>
+         console.log($);
+     </script>
+     <!-- 
+         jq设置样式
+         $('div').css('属性'，'值')
+      -->
+</body>
+</html>

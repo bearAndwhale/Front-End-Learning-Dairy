@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        body{
+            height: 2000px;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+            position: absolute;
+            top:20px;
+            left: 50px;
+                    }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            position: absolute;
+            top:50px;
+        }
+        .div3{
+            position: absolute;
+            top:250px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        获取/设置标签的位置数据
+        offset():相对于页面左上角的坐标
+        position():相对于父元素左上角的坐标
+     -->
+     <div class="div1">
+         <div class="div2">测试offset</div>
+     </div>
+     <br><br>
+     <div class="div3">
+         <button id="btn1">读取offset和position</button>
+         <button id="btn2">设置offset</button>
+     </div>
+     <script src="../jquery-3.0.0.js"></script>
+     <script>
+            /* 
+                1.点btn1
+                打印div1相对于页面左上角的位置
+                打印div2相对于页面左上角的位置
+                打印div1相对于父元素左上角的位置
+                打印div2相对于父元素左上角的位置
+             */
+             $('#btn1').click(function(){
+                 console.log(
+                     "div1相对于页面左上角的位置"+'('+$('.div1').offset().left+','+$('.div1').offset().top+')\n',
+                     "div2相对于页面左上角的位置"+'('+$('.div2').offset().left+','+$('.div2').offset().top+')\n',
+                     "div1相对于父元素左上角的位置"+'('+$('.div1').position().left+','+$('.div1').position().top+')\n',
+                     "div2相对于父元素左上角的位置"+'('+$('.div2').position().left+','+$('.div2').position().top+')\n'
+                 )
+             });
+             /* 
+                点击btn2，设置div2相对于页面左上角的位置
+             */
+            $('#btn2').click(function(){
+                $('.div2').offset({top:50,left:10});
+            })
+           
+     </script>
+</body>
+</html>

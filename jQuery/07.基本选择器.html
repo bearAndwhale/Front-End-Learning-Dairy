@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+    <style>
+        p{
+            font-size: 25px;
+            color:red;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        选择器
+        - 一个具有特别语法规则的字符串
+        - 基本语法规则：css选择器及其扩展
+        - 只有调用$,选择器才会起作用
+        - $(selector):根据选择器字符串，查找所有匹配的标签，包装成jq对象
+        基本选择器
+        - #id
+        - *
+        - .class
+        - element
+        层次选择器
+        - ancestor descendant 后代
+        - parent > child      子代（只有一代）
+        - prev + next
+        - prev ~sibling 匹配prev元素之后的所有sibling元素
+        过滤选择器
+        - 在原有选择器的结果中进一步过滤的选择器
+        - 基本
+        - 内容
+        - 可见性
+        - 属性
+        表单选择器
+        - 表单
+        - 表单对象属性
+     -->
+     <!-- 
+         css函数
+         - 参数为css属性/或属性组成的数组：返回属性名对应的属性值/对象
+            $('p').css('color')
+            $('p').css(['color','font-size'])
+        - 参数为属性名:属性值的kv对，修改属性名对应的属性为属性值
+            $('p').css('color','red')
+            $('p').css('color':'red')
+            $('div').css({'color':'red','font-size':'14px'})
+        - 参数为name:回调函数
+            此函数返回要设置的属性值。接受两个参数，
+            index为元素在对象集合中的索引位置，value是原先的属性值。
+
+      -->
+     <!-- 
+         需求1:选择id为div1的元素
+         需求2：选择所有的div元素
+         需求3：选择所有class属性为box的元素
+         需求4：选择多有的div和span
+         需求5：选择class属性为box的div元素
+      -->
+      <p>今天天气真不错</p>
+      <div></div>
+      <script>
+          console.log($('p').css(['color','font-size']),$('p').css('color'));
+          $('p').css('color','blue')
+          $('p').css({'color':'red','font-size':'14px'})
+
+          $('div').click(function(){
+              $(this).css({
+                //   value:当前属性值
+                  width:function(index,value){
+                    return parseFloat(value) * 1.2;
+                  },
+                  height:function(index,value){
+                    return parseFloat(value) * 1.2;
+                  }
+              })
+          })
+        // 需求1:选择id为div1的元素
+        $('#div1')
+        // 需求2：选择所有的div元素
+        $('div')
+        // 需求3：选择所有class属性为box的元素
+        $('.box')
+        // 需求4：选择所有的div和span
+        $('div','span')
+        // 需求5：选择class属性为box的div元素
+        $('div.box')
+      </script>
+</body>
+</html>

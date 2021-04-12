@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <script>
+        // 第一个div的title属性
+        $('div:first').attr('title');
+        // 给所有的div设置name属性value为kun
+        $('div').attr('name','kun');
+        // 移除所有div的title属性
+        $('div').removeAttr('title');
+        // 给所有div设置class = 'kun'=>以前有class的被覆盖
+        $('div').attr('class','kun');
+        // 给所有div添加class='KUN'
+        $('div').addClass('KUN')
+        // 移除所有div的KUN class（删除其中的一个）
+        $('div').removeClass('KUN');
+
+        // 读写合一
+
+        // 得到最后一个li的标签体文本
+        $('li:last').html();
+        // 设置最后一个li的标签体为asd
+        $('li:last').html('asd');
+        // 得到输入框的value
+        $(':text').val();
+        // 将输入框文本设置为asd
+        $(':text').val('asd');
+        
+        // 点击全选按钮，实现全选
+        /* 
+            attr()：操作属性为非布尔值的属性
+            prop()：操作属性为布尔值的属性
+        */
+        $checkbox = $(':checkbox')
+        $('button:first').click(function(){
+            $checkbox.prop('checked',true);
+        })
+
+    </script>
+</body>
+</html>

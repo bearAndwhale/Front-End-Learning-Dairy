@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        $.each() 遍历数组或对象中的数据
+        $.trim() 去除字符串两端的空格
+        $.type(obj):得到数据的类型
+        $.isArray()
+        $.isFunction()
+        $.parseJSON(json) 解析json字符串为js对象/数组
+     -->
+     <script src="../jquery-3.0.0.js"></script>
+     <script>
+        //  each
+         var obj = {
+             name:'Bob',
+            setName:function(name){
+                this.name = name;
+            }
+         }
+         $.each(obj,function(key,value){
+             console.log(key,value);
+         })
+
+        //  type
+        console.log($.type($));//function
+        // isArray
+        console.log($.isArray($('body')));//false
+        // isFunction
+        console.log($.isFunction($));//true
+        // JSON
+        var json = '{"name":"tom","age":12}';//json对象
+        var jsonArray = '[{"name":"tom","age":12},{"name":"bob","age":12}]'
+        // json对象 to js对象
+        console.log($.parseJSON(json));
+        // json数组 to js数组
+        console.log($.parseJSON(jsonArray));
+
+     </script>
+</body>
+</html>

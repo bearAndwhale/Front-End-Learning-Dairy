@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        作为一般函数调用：$(param)
+            - 参数为函数，当DOM加载完成后，执行此回调函数
+            - 参数为选择器字符串：查找所有匹配的标签，并封装成jq对象
+            - 参数为DOM对象：将dom对象封装成jq对象
+            - 参数为html标签字符串（用得少）：创建标签对象并封装为jq对象
+        作为对象去使用:$.xxx()  【调用对象的方法】
+            - $.each(obj,[callback]) 隐式遍历数组
+            - $.trim(str) 去掉字符串两边的空格
+     -->
+     <div>
+         <button id="btn">测试</button>
+         <br>
+         <input type="text" name="msg1" id="">
+         <br>
+         <input type="text" name="msg2">
+         <br>
+     </div>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        /* 
+            需求1：点击按钮，显示按钮的文本，显示一个新的输入框
+            需求2：遍历输出数组中所有元素
+            需求3：去掉'   myJS  '两端的空格,中间的还保留着
+        */
+    //    需求1
+       $(function(){//绑定文档加载完成以后的监听
+        // 参数为选择器字符串：查找所有匹配的标签，并封装成jq对象
+        $('#btn').click(function(){//绑定点击事件监听[对象调用click方法，回调函数作为参数]
+            // 事件回调函数的this是谁？发生事件的dom元素(<button>)
+            // alert(this.innerHTML);
+
+            // 参数为DOM对象：将dom对象封装成jq对象
+            alert($(this).html());
+            // 参数为html标签字符串（用得少）：创建标签对象并封装为jq对象
+            $('<input type="text" name="msg3"/><br>').appendTo('div');
+        })
+       })
+    // 需求2
+       var arr = [2,4,6,8];
+    //    作为对象使用，调用方法
+    // each方法的回调函数中，自动将下标和值作为前两个参数传入
+       $.each(arr,function(){
+           console.log(arguments[0],arguments[1]);
+       })
+       /* 
+        等价于
+        $.each(arr,function(index,item){
+           console.log(index,item);
+       })
+       */
+    
+    //    需求3
+    var str = '   my  JS   ';
+    
+    console.log('111'+$.trim(str)+'222');
+
+    </script>
+</body>
+</html>

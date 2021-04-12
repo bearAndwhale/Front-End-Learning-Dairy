@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 150px;
+            padding: 10px;
+            background-color: coral;
+            border:10px solid black;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        // 内容区尺寸
+        var div = $('div');
+        console.log(
+            'width:'+ div.width()+'\n',
+            'height:'+ div.height()+'\n'
+        )
+        // 内容区+padding*2
+        console.log(
+            'width:'+ div.innerWidth()+'\n',
+            'height:'+ div.innerHeight()+'\n'
+        )
+        // 内容区+padding*2+border*2
+        console.log(
+            'width:'+ div.outerWidth()+'\n',
+            'height:'+ div.outerHeight()+'\n'
+        )
+        // 参数为true，内容区+padding*2+border*2+margin
+        console.log(
+            'width:'+ div.outerWidth(true)+'\n',
+            'height:'+ div.outerHeight(true)+'\n'
+        )
+    </script>
+</body>
+</html>

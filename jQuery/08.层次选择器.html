@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <ul>
+        <li>aaaa</li>
+        <li class="box">cccc</li>
+        <li title="hello"><span>bbb</span></li>
+        <li title="hello"><span class="box">ddd</span></li>
+        <span>eee</span>
+    </ul>
+    <script>
+        // 选中ul下的所有span
+        $('ul  span').css('color','red');
+        // 选中ul的子元素span
+        $('ul > span').css('font-size','50px');
+        // 选中class为box的下一个li
+        $('.box + li').css('background','blue');
+        // 选中ul下的class为box的元素后面的所有兄弟元素
+        $('ul .box ~ *').css('background','yellow');
+
+    </script>
+</body>
+</html>

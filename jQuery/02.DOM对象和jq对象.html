@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+    <!-- 
+        DOM
+            - 用原生js获取的对象就是DOM对象
+            - 不能用jq方法
+        jq对象
+            - 用jq获取的的元素就是DOM对象 
+            - 本质：通过$把DOM元素进行包装产生一个新的对象，伪数组方式存储
+            - 不能用dom方法
+        相互转换
+            - 原生js比jq大，想使用没有被封装的功能只能用原生js
+            - 如播放play只有原生有
+
+    -->
+    <video controls>
+        对不起，浏览器版本不支持
+        <source src="IMG_8508.mp4">
+        <embed src="IMG_8508.mp4" type="vidio/mp4" width="500" height="1080">
+    </video>
+    <script>
+        // DOM转jq
+        // 1.直接用jq获取
+        $('video');
+        // 2.已经使用原生js获取到的对象,变量名不用加括号
+        var myVideo = document.querySelector('video');
+        $(myVideo);
+
+        // jq转DOM
+        // 索引号（伪数组）
+        $('video')[0].play();
+
+    </script>
+</body>
+</html>

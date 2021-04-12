@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        查找：从过滤出来的jq对象的后代里面找
+        children():查找所有符合条件的子元素（而非后代）
+        find():查找后代
+        parent():查找父标签
+        parents():查找所有祖先
+        prevAll():前面所有的兄弟标签
+        nextAll():后面所有兄弟标签
+        siblings():前后所有兄弟标签
+    -->
+    body
+    <div>
+        <ul>
+            <span>span1</span>
+            <li>aaa</li>
+            <li title="hello" class="box2">222</li>
+            <li class="box" id="cc">333</li>
+            <li title="hello">444</li>
+            <li title="two"><span>span2</span></li>
+            <span>span3</span>
+        </ul>
+        <span>span4</span>
+        <li>555</li>
+        <li>666</li>
+    </div>
+    <script src="../jquery-3.0.0.js"></script>
+    <script>
+        // ul标签的第2个span子标签
+        // $('ul>span')[1].style.color = 'red';//转换为dom对象
+        // $('ul>span').eq(1).css('color','red');
+        // $('ul').children('span').eq(1).css('color','red');
+
+        // ul标签的第2个span后代标签
+        // $('ul span').eq(1).css('color','red');
+        // $('ul').find('span').eq(1).css('color','red');
+
+        // ul的父标签
+        // $('ul').parent().css('color','red');
+
+        // id为cc的li把标签前面的所有li标签
+        // $('#cc').prevAll('li').css('color','red');
+
+        // id为cc的li标签的所有兄弟li标签
+        $('#cc').siblings('li').css('color','red');
+    </script>
+</body>
+</html>
