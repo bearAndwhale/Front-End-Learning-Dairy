@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <style>
+            .box1{
+                width: 200px;
+                height: 200px;
+                background-color: wheat;
+            }
+            .box2{
+                width: 100px;
+                height: 100px;
+                background-color: violet;
+                /* 解决外边距重叠问题的思想：
+                父元素中在最开始的时候添加一个新的元素把父元素和子元素隔开
+                
+                 */
+                margin-top: 100px;
+            }
+            .box1::before{
+                content: "";
+                display: table;
+            }
+            /* clearfix可以同时解决高度塌陷和外边距重叠问题 */
+            .clearfix::before,
+            .clearfix::after{
+                /* 解决外边距重叠 */
+                content: "";
+                display: table;
+                /* 解决高度塌陷
+                    
+                 */
+                clear: both;
+            }
+        </style>
+	</head>
+	
+	<body>
+        <div class="box1">
+            <div class="box2"></div>
+        </div>
+    </body>
+</html>

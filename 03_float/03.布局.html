@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <style>
+            /* 公共样式 */
+            header,main,footer{
+                width: 1000px;
+                margin:0 auto;
+            }
+            /* 水平排列 */
+            nav,article,aside{
+                float: left;
+            }
+            header{
+                /* width: 1000px; */
+                height: 150px;
+                background-color: silver;                 
+            }
+            main{
+                /* width: 1000px; */
+                height: 400px;
+                background-color:#bfa;
+                /* main和上下都有距离 */
+                margin:10px auto;
+            }
+            nav{
+                width: 200px;
+                height: 100%;
+                background-color: yellow;
+            }
+            article{
+                width: 580px;
+                height: 100%;
+                background-color: teal;
+                /* 总宽度变为1020，会溢出 */
+                margin: 0 10px;
+                
+            }
+            aside{
+                width: 200px;
+                height: 100%;
+                background-color: wheat;
+            }
+            footer{
+                /* width: 1000px; */
+                height: 150px;
+                background-color: red;
+                /* margin:0 auto; */
+            }
+
+        </style>
+	</head>
+	
+	<body>
+        <!-- 创建头部 -->
+        <header></header>
+        <!-- 创建主体 -->
+        <main>
+            <!-- 左侧导航 -->
+            <nav>
+
+            </nav>
+            <!-- 中间文档 -->
+            <article>
+
+            </article>
+            <!-- 右侧边栏 -->
+            <aside>
+
+            </aside>
+        </main>
+        <!-- 创建底部 -->
+        <footer></footer>
+    </body>
+</html>

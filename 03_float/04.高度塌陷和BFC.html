@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <style>
+            /* outer被inner撑开 */
+            .outer{
+                border: red solid 10px;
+                /* 
+                    BFC（Block Formatting Context）块级格式化环境
+                        -BFC是CSS的一个隐含属性
+                        -开启BFC后元素会变成一个独立的布局环境
+                        元素开启BFC的特点：
+                            -开启BFC的元素不会被浮动元素覆盖(兄弟元素的子元素浮动后，自己可能会被覆盖)
+                            -开启BFC的元素，子元素和父元素的外边距不会重叠
+                            -开启BFC的元素可以包含浮动的子元素
+                        可以通过特殊方式开启BFC
+                            -设置元素浮动(不推荐) 高度不塌 宽度丢失
+                            -将元素设置为inline-block（不推荐）高度不塌 宽度丢失
+                            -将overflow设置为非visible，高度不塌，宽度也没丢
+                 */
+                 /* float: left; */
+                 /* display: inline-block; */
+                 overflow: auto;
+            }
+            .inner{
+                width: 100px;
+                height: 100px;
+                background-color: wheat;
+                /* 浮动后父元素不再被inner撑开，发生高度塌陷 */
+                /* 
+                    父元素高度塌陷，其下的元素自动上移，导致页面布局混乱
+                 */
+                float: left;
+            }
+            
+        </style>
+	</head>
+	
+	<body>
+       <div class="outer">
+           <div class="inner"></div>
+       </div>
+       <div style="width: 100px;height: 100px; background-color: violet;"></div>
+    </body>
+</html>
