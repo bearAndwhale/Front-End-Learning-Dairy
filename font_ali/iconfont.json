@@ -1,0 +1,51 @@
+{
+  "id": "2415050",
+  "name": "new",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14682872",
+      "name": "评分",
+      "font_class": "pingfen",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "17361041",
+      "name": "评分",
+      "font_class": "pingfen1",
+      "unicode": "e745",
+      "unicode_decimal": 59205
+    },
+    {
+      "icon_id": "19446125",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "ea8c",
+      "unicode_decimal": 60044
+    },
+    {
+      "icon_id": "16365556",
+      "name": "location",
+      "font_class": "biglocation",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "13618801",
+      "name": "下  拉",
+      "font_class": "xiala-copy",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "10725577",
+      "name": "分隔",
+      "font_class": "fenge",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
