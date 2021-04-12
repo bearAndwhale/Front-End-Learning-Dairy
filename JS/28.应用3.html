@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            left:0;
+            background-color: bisque;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            left:0;
+            background-color: yellowgreen;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+    <script src="./tool.js"></script>
+    <script>
+    window.onload = function(){
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");
+         
+        btn01.onclick = function(){
+            moveBox(box1,"left",10,800);
+  
+        };
+        btn02.onclick = function(){
+            moveBox(box1,"left",10,100);
+  
+        };
+        btn03.onclick = function(){
+            moveBox(box2,"width",10,800,function(){
+                moveBox(box2,"height",10,800)
+            });
+  
+        };
+        
+    };
+       
+    </script>
+</head>
+<body>
+    <button id="btn01">向右移动box1</button>
+    <button id="btn02">向左移动box1</button>
+    <button id="btn03">向右移动box2</button>
+    <button id="btn04">向右移动box2</button>
+    <br><br>
+    <div id="box1" ></div>
+    <div id="box2" ></div>
+    <div style="width: 0;height: 1000px; position: absolute;top:0;border-left: black solid 1px;left: 800px;"></div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+        #s1{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+                事件冒泡
+                - 所谓的冒泡就是指事件的向上传导，当后代元素上的事件被触发时，其祖先的相同元素也会被触发
+                - 开发中，冒泡是很有用的，如果不希望发生时间冒泡，可以通过时事件对象取消冒泡
+                -  event.cancelBubble = true;
+            */
+
+            // span
+            var s1 = document.getElementById("s1");
+            s1.onclick = function(event){
+                alert("span click");
+                event.cancelBubble = true;
+            };
+            // box1
+            var box1 = document.getElementById("box1");
+            box1.onclick = function(){
+                alert("div click");
+            };
+            // body
+            document.body.onclick = function(){
+                alert("body click");
+            };
+           
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+        box1
+        <span id="s1">span</span>
+    </div>
+</body>
+</html>

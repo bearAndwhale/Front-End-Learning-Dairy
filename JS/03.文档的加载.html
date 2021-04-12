@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <script>
+             window.onload = function(){
+                 // 获取button对象
+                var btn = document.getElementById("btn");//btn就是这个按钮
+                // 修改按钮的文字,即修改btn的innerHTML属性
+                btn.onclick = function(){
+                    alert("hello");
+            }
+             }
+        </script>
+	</head>
+	<!-- 
+        浏览器加载页面时，是按照自上向下的顺序加载的
+        读一行就运行一行，若将js代码写在head的script标签里，在代码加载时，页面还没有加载，dom对象也还没有加载
+        获取不到dom对象
+        故要把js代码写在body里，在页面加载完毕以后再执行代码（最优）
+     -->
+     <!-- 
+         onload事件会在整个页面加载完成后触发
+         为window绑定一个onload事件，该事件对应的响应函数将会在整个页面加载完成后执行
+         这样可以确保js代码执行时，所有的dom对象都已将加载
+         这样js代码就可以写在head里的script里
+         但是会影响到页面加载速度
+      -->
+      
+     
+	<body>
+        <button id="btn">按钮</button>
+		
+		</script>
+    </body>
+</html>

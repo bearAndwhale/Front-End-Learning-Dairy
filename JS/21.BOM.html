@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function(){
+        /* Navigator */
+        /* 
+            - 由于历史原因，navigator对象里的许多属性已经不能帮我们判断浏览器了
+            - 一般我们会使用userAgent判断浏览器信息，userAgent是一个字符串，这个字符串中包含有描述浏览器信息的内容
+            - 不同的浏览器有不同的浏览器信息
+        */
+        // 显示浏览器名称
+        // console.log(navigator.appName);
+        console.log(navigator.userAgent);
+        // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36
+        // 判断userAgent里有没有浏览器名称
+        /* 
+            火狐：/firefox/i
+            IE8-10:/msie/i
+            chrome:/chrome/i
+            IE11:IE11中已经将msie相关标识全部去除了，所以我们基本不能通过userAgent判断一个浏览器是否为ie
+        */
+        /* var reg = /\bChrome\b/;
+        console.log(reg.test(navigator.userAgent)); */
+        /* 如果通过UserAgent不能判断，可以通过一些浏览器特有的对象来判断浏览器
+        如：ActiveXObject，只有IE有,很坏，直接查属性名
+        alert("ActiveXObject" in window)
+         */
+
+    };
+</script>
+<body>
+    <!-- 
+        BOM
+         - 浏览器对象模型
+         - BOM可以通过js操作浏览器
+         - BOM提供一组对象，来完成对浏览器的操作
+         - BOM对象
+            Window
+                - 代表整个浏览器的窗口，也是网页中的全局对象
+            Navigator
+                - 代表浏览器的信息，通过该对象可以来识别不同的浏览器
+            Location
+                - 代表浏览器的地址栏信息，可以获取地址栏信息，控制跳转
+            Hisotry
+                - 代表浏览器的历史记录，可以通过该对象操作历史记录
+                - 由于隐私原因，该对象不能获取具体的历史记录，智能操作浏览器向前或向后，
+                而且该操作只在当次访问（打开关闭浏览器算一次）有用
+            Screen
+                - 代表用户的屏幕信息，通过该对象可以获取用户的显示器相关属性
+         - 这些对象在浏览器中都是作为window对象的属性保存的，可以通过window对象调用，也可以直接使用
+
+        
+     -->
+</body>
+</html>

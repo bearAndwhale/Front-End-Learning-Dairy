@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                // 跟随鼠标移动
+                // 开启定位，改偏移量（）如果改margin会影响到其他的元素
+                // pageX和pageY获取相对于页面的坐标（一个窗口装不下的情况）ie8不支持
+                /*  var x = event.pageX;
+                    var y = event.pageY; */
+                // clientX和clientY获取相对于当前可见窗口的坐标
+
+                /* 
+                    兼容性问题：
+                    chrome认为滚动条是document.body的，可以通过body获取scrollTop信息
+                    火狐等浏览器认为滚动条是html的一个属性 ,	document.documentElement返回文档的根节点
+                */
+                event = event||window.event;
+                var cx = event.clientX;
+                var cy = event.clientY;
+                var st = document.body.scrollTop||document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft||document.documentElement.scrollLeft;
+                
+                // 注意加上px
+                box1.style.left = cx+sl+"px";
+                box1.style.top = cy+st+"px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

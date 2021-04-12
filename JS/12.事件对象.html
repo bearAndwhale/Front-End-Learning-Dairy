@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            width: 300px;
+            height: 150px;
+            border:1px solid black;
+        }
+        #showMsg{
+            width: 300px;
+            height: 50px;
+            border:1px solid black;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 当鼠标在area中移动时，显示坐标 */
+            // 获取两个div
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+            /* 
+                onmousemove
+                -该事件会在鼠标在元素中移动时触发
+                事件对象
+                - 当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+                - 在时间对象中，封装了当前事件相关的一切信息，比如：鼠标移动，滚轮滚动的方向
+
+            */
+            // 函数传参的方式：arguments
+            /* areaDiv.onmousemove = function(){
+                // clientX，clientY获取鼠标的坐标
+                var x = arguments[0].clientX;
+                var y = arguments[0].clientY;
+                showMsg.innerHTML = "x = "+x+",y = "+y;
+                
+            }; */
+            // 设置形参也可以
+            /* areaDiv.onmousemove = function(event){
+                // clientX，clientY获取鼠标的坐标（相对于可见窗口的！）
+                var x = event.clientX;
+                var y = event.clientY;
+                showMsg.innerHTML = "x = "+x+",y = "+y;
+                
+            }; */
+            /* 
+            IE8及以下中，响应函数被触发时，浏览器不会传递事件作为实参，
+            IE8及以下中，是将事件对象作为window的属性保存的
+            */
+            areaDiv.onmousemove = function(event){
+                // 若event存在，不再判断window.event
+                event = event||window.event;
+                var x = event.clientX;
+                var y = event.clientY;
+                showMsg.innerHTML = "x = "+x+",y = "+y;
+                
+            };
+        };
+        
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+        .d2{
+            width: 200px;
+            height: 100px;
+            background-color: hotpink;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            var box =  document.getElementById("box");
+          
+            /* 
+                通过style属性来修改元素的样式，每修改一个样式，浏览器就重新渲染一次页面
+                这样执行的性能较低，也不方便
+
+                希望一行代码可以同时修改多个样式
+                可以通过修改元素的class属性来间接修改属性
+                这样一来我们只需要修改一次即可同时修改多个样式，浏览器只需重新渲染一次页面
+                并且可以使表现和行为进一步分开
+            */
+            
+            btn01.onclick = function(){
+                //修改box的class属性
+                /* 
+                    注意这里是用d2替换了d1，d1的样式完全消失，width变为默认值：父元素的100%
+                    要想保留d1的样式，修改其中的一部分，需要把d2加上去，注意加空格
+                    即<div id="box" class="d1 d2"></0div>
+                */
+                toggleClass(box,"d2");
+            };
+            // alert(hasClass(box,"d2"));
+            // deleteClass(box,"d2");
+            
+        };
+
+
+        // 定义一个函数，用来向一个指定元素中添加指定的class属性值(cn)
+        function addClass(obj,cn){
+            // 检查是否含有cn
+            if(!hasClass(obj,cn)){
+                obj.className += " "+cn;
+            }
+        }
+
+        // 判断一个函数是否含有指定的属性值
+        function hasClass(obj,cn){
+            // var reg = /\bcn\b/;
+            /* 
+                上面那种写法是不行的，会直接判断有没有叫cn的单词，而不会取cn的值
+                此时要用构造函数来创建reg
+            */
+           var reg = new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+        }
+
+        // 删除元素中的指定class
+        /* 将指定的cn替换为空串 */
+        function deleteClass(obj,cn)
+        {
+            var reg = new RegExp("\\b"+cn+"\\b");
+            obj.className = obj.className.replace(reg,"");
+        }
+
+        /* 
+            切换一个类，有就删除，没有就加上
+        */
+        function toggleClass(obj,cn){
+            if(hasClass(obj,cn)){
+                deleteClass(obj,cn);
+            }
+            else{
+                addClass(obj,cn);
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id = "box" class="d1"></div>
+    <button id="btn01">改变样式</button>
+</body>
+</html>

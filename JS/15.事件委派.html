@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 为每一个超链接都绑定一个单击响应函数
+        window.onload = function(){
+            // 点击按钮添加超链接
+            var btn01 = document.getElementById("btn01");
+            var ul = document.getElementById("u1");
+            btn01.onclick = function(){
+                
+                var li = document.createElement("li");
+                li.innerHTML = " <a href='javascript:;' class='link'>link 4</a>";
+                ul.appendChild(li);
+            };
+            /* 
+                为每一个已有的超链接绑定单击响应函数
+                但是新建的超链接需要重新绑定
+                希望只绑定一次事件，就可以应用到所有元素，即使是后来添加的
+                可以尝试将其绑定给他们共同的祖先元素（事件冒泡原理）ul
+
+            */
+            /* var allA = document.getElementsByTagName("a");
+            for( var i = 0; i < allA.length;i++){
+                allA[i].onclick = function(){
+
+                }; */
+            // 为ul绑定单击响应函数
+            /* 
+                事件委派：
+                - 把事件绑定到共同的祖先元素，这样当后代元素被触发时，会一直冒泡到祖先元素
+                  从而通过祖先元素的响应函数来处理
+                - 通过委派，可以减少绑定次数，提高程序性能
+            */
+                ul.onclick = function(event){
+                //如果点的元素是我们期望的元素，就执行，否则不执行
+                event = event||window.event;
+                    if(event.target.className == "link")
+                    {
+                        alert(11);
+                    }
+
+                                };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="u1">
+        <li><a href="javascript:;" class="link hello">link 1</a></li>
+        <li><a href="javascript:;" class="link">link 2</a></li>
+        <li><a href="javascript:;" class="link">link 3</a></li>
+    </ul>
+</body>
+</html>

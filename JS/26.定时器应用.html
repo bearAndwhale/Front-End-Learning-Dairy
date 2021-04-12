@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            left:0;
+            background-color: bisque;
+            position: absolute;
+        }
+    </style>
+    <script>
+    window.onload = function(){
+        function getStyle(obj , name){
+        return getComputedStyle(obj,null)[name]?getComputedStyle(obj,null)[name]:obj.getCurrentStyle[name];
+        }
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+        var timer;
+        // 向右移动：left逐渐增大   
+        btn01.onclick = function(){
+            clearInterval(timer);
+             timer = setInterval(function(){
+                var oldLeft = parseInt(getStyle(box1,"left"));
+                // 自增left
+                var newLeft = oldLeft + 10 ;
+                // 当速度在11时，永远不能精确到达800
+                if(newLeft > 800){
+                    newLeft = 800;
+                }
+                box1.style.left = newLeft+ "px";
+                
+                if(newLeft == 800)
+                    {
+                        clearInterval(timer);
+                    }               
+            },30);
+            // 移动800px停止执行
+            
+        };
+    };
+       
+    </script>
+</head>
+<body>
+    <button id="btn01">移动box1</button>
+    <br><br>
+    <div id="box1"></div>
+    <div style="width: 0;height: 1000px; position: absolute;top:0;border-left: black solid 1px;left: 800px;"></div>
+</body>
+</html>

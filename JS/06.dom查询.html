@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 获取body标签
+            // 注意返回的是数组，要获取单独的标签需要加上索引
+            var body = document.getElementsByTagName("body")[0];
+
+            /* 在document中有一个属性body，保存的是body的引用 */    
+            body = document.body;
+
+            // documentElement属性保存着html根标签的引用
+            var html = document.documentElement;
+
+            // all属性保存了所有元素标签（类数组）
+            var all = document.all;
+            all = document.getElementsByTagName("*");
+
+            // 根据元素的class值获取一组对象,不支持ie8及以下
+            var box1 = document.getElementsByClassName("box1");
+
+            // 获取页面中的所有div
+            var divs = document.getElementsByTagName("div");
+
+            // 获取class为box1的所有div
+            // css选择器语法：div.box1
+            /* 
+                document.querySelector()
+                - 需要一个选择器字符串作为参数
+                - 可以根据一个css选择器来查询一个元素节点对象
+                - iE8支持
+                - 使用该方法总会返回一个元素，如果满足条件的元素有多个，但是只会返回第一个
+                - 不返回数组
+            */
+           var div = document.querySelector("div.box1");
+           document.write(div.innerHTML);
+           /* 
+                document.querySelectorAll()
+                - 用法与 document.querySelector()相同
+                - 不同的时它会将符合条件的元素封装到一个数组中返回
+                - 即使只有一个元素，也会返回数组
+           */
+          var divss = document.querySelectorAll("div");
+          
+
+
+        };
+    </script>
+</head>
+<body>
+    <div class="box1">
+        wo<div></div>
+    </div>
+    <div></div>
+</body>
+</html>

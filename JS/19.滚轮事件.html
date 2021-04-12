@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        /* 
+        滚轮在box1里面滚动
+            滚轮向下box1变长
+            滚轮向上box1变短
+         */
+        window.onload = function(){
+            function bind(obj,eventStr,callBack){
+                if(obj.addEventListener){
+                     obj.addEventListener(eventStr,callBack,false);
+                }
+                else{
+                    obj.attachEvent("on"+eventStr,function(){
+                    callBack.call(obj);
+                });
+                }
+            }
+            var box1 = document.getElementById("box1");
+            /* 
+                onmousewheel是滚轮滚动事件，火狐不支持
+
+                火狐中需要使用DOMMouseSroll来绑定滚动时间，需要使用addEventListener()来绑定
+            */
+            /* box1.onmousewheel = function(){
+                alert(11);
+            }; */
+            // 两个兼容写法
+            /* function fn(){
+                alert(11);
+            }
+            box1.onmousewheel =fn;
+            bind(box1,"DOMMouseSroll",fn); */
+
+            // 绑定事件
+            box1.onmousewheel = function(event){
+               
+                // 判断滚轮向上还是向下
+                /* 
+                    wheelDelta的值不看大小只看正负
+                        向上120
+                        向下-120
+                    火狐不适用
+                    火狐使用event.detail
+                        向上-3
+                        向下3
+                */
+                event = event||window.event;
+                // alert(event.wheelDelta);
+                /* 
+                    当页面有滚动条时，滑动滚轮滚动条会滚动，这是浏览器的默认行为，
+                    如果不希望发生，则可以取消这个默认行为：return false
+                    使用addEventListener绑定的事件不能用return false取消默认行为
+                    应该使用 event.preventDefault()来取消默认行为
+                    但是ie8不支持event.preventDefault()
+                */
+                if(event.wheelDelta > 0 || event.detail <0)
+                {
+                    // 向上滚，变短
+                    // 每滚动一次-10px
+                    box1.style.height = box1.clientHeight - 10 + "px";
+                }
+                else
+                {
+                    // 向下滚，变长
+                    box1.style.height = box1.clientHeight + 10 + "px";
+                }
+                if(event.preventDefault){
+                    event.preventDefault();//解决ie8不支持的问题
+                }
+                // event.preventDefault && event.preventDefault()
+                
+                return false;
+
+            };
+            bind(box1,"DOMMouseSroll",box1.onmousewheel);
+           
+           
+        };
+        
+    </script>
+</head>
+<body style="height: 2000px;">
+    <div id="box1"></div>
+</body>
+</html>

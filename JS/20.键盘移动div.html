@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            document.onkeydown = function(event){
+                event = event||window.event;
+                // console.log(event.keyCode)
+                // left:37 right:39 top:38 down 40
+                // 用switch case
+                switch(event.keyCode){
+                    case 37:
+                        box1.style.left = box1.offsetLeft - 100 + "px";
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft + 10 + "px";
+                        break;
+                    case 38:
+                        box1.style.top = box1.offsetTop - 10 + "px";
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop + 10 + "px";
+                        break;
+
+                }
+                
+            };
+        };
+        
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

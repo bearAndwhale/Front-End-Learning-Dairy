@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /* 
+                Location
+                    - 该对象封装了浏览器的地址栏信息
+                    - 如果直接打印location，则可以获取到当前页面的完整路径
+                    - 如果直接将location修改为一个路径，则页面会自动跳转，并且会生成响应的历史记录
+                方法：
+                assign()：用来加载其他页面，作用和直接修改location一样
+                reload():用来重新加载页面，作用和刷新按钮一样,true作为参数，会强制清空缓存刷新页面
+                replace():使用新的文档替换当前文档，也会跳转,不会生成历史记录，会不去
+
+            */
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                // alert(location);
+                // location = "http://www.baidu.com";
+                // location.assign("http://www.baidu.com");
+                // location.reload(true);
+                location.replace("http://www.baidu.com");
+            };
+        };
+        
+       
+    </script>
+</head>
+<body>
+    <h1>Location</h1>
+    <button id="btn">点我</button>
+    <a href="./21.BOM.html">bom</a>
+    <input type="text">
+</body>
+</html>

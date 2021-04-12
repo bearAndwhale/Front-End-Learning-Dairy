@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+	</head>
+	
+	<body>
+        <!-- 我们可以在事件对应的属性中设置一些js代码，当事件被触发时，
+            这些代码将会执行 -->
+			<!-- 这种方法结构和行为耦合，不推荐使用 -->
+        <!-- <button id="btn" ondblclick="alert('hello');">按钮</button> -->
+		<button id="btn">我是btn</button>
+		<script>
+			/* 
+            事件：用户和浏览器之间的交互行为
+                如：点击按钮，鼠标移动，关闭窗口
+			可以为按钮的对应事件绑定处理函数的形式来响应事件
+            */
+			// 获取按钮对象
+			var btn = document.getElementById("btn");
+			// 为按钮的对应事件绑定处理函数的形式来响应事件
+			// 绑定一个单击事件,onclick被触发时执行
+			// 像这种为单击事件绑定的回调函数称为单击响应函数
+			btn.onclick = function(){
+				alert("点我");
+			}
+		</script>
+    </body>
+</html>

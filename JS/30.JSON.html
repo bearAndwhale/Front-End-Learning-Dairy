@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  创建一个对象
+        var obj = '{"name":"孙悟空","age":18}';
+        var obj2 = '[{"name":"孙悟空","age":18},{"name":"孙悟空","age":18}]';
+        var obj3 = {name:"孙"};
+        // 将JSON转换为JS对象
+        /* 
+            JS中提供了一个工具类JSON，可以将JSON对象和JS对象互相转换
+        */
+        //    JSON->JS
+        // JSON字符串为参数，返回JS对象
+        var o = JSON.parse(obj);
+        console.log(o.name);
+        /* 
+            JS->JSON
+            JS对象作为参数，返回JSON字符串
+        */
+       console.log(JSON.stringify(obj3));
+     </script>
+</head>
+<body>
+    <!-- 
+        JSON JavaScript Object Notation：JS对象表示法
+        -JS的对象只有JS认识，其他的语言不认识
+        -JSON就是一个特殊格式的字符串，可以被任意的语言识别，并且可以转换为任意语言中的对象
+        -JSON在开发中主要用于数据交互
+        -JSON的对象表示和JS一样，但是JSON的属性名必须加“”
+        -JSON分类
+            1.对象{}
+            2.数组[]
+
+            JSON中允许的值：string number null Boolean Array 对象（普通对象，不包括函数）
+        IE7及以下不允许JSON，会报错
+        如果需要兼容IE7及以下，可以引入外部JS文件来处理
+        -->
+     
+</body>
+</html>

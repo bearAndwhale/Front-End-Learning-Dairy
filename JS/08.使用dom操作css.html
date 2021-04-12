@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 通过style属性读取和修改的都是内联样式，无法读取和修改样式表的样式
+            /* 
+                js修改元素的样式
+                 语法：元素.style.样式名 = 样式值
+                
+             */
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                // 注意：若css样式名中含有-，这种名称在js中是不合法的，需要修改为驼峰命名法
+                /* 
+                    通过style属性修改的样式是内联样式
+                    内联样式有较高的优先级，所以通过js修改的样式往往会立即显示
+                    但是如果在样式中写了！important，此时央视会有最高优先级
+                    js修改样式就会失效
+                    尽量不要这样改
+                */
+                box1.style.backgroundColor = "red";
+                box1.style.height = "500px";
+            };
+            // btn02读取样式
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                /* 
+                    读取内联样式
+                     语法：元素.style.样式名
+                */
+               alert(box1.style.height);
+            };
+        };
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <br><br>
+    <button id="btn01">ann</button>
+    <button id = "btn02">read</button>
+</body>
+</html>

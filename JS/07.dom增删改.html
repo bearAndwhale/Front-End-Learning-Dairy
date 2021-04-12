@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+ 
+        table, th, td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin: 20px auto;
+            text-align: center;
+        }
+ 
+        th, td {
+            width: 100px;
+            height: 35px;
+        }
+ 
+        div {
+            margin: 30px auto;
+            width: 428px;
+            height: 200px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        // 删除函数
+        function delA(){
+                    // 获取tr
+                    var tr = this.parentNode.parentNode;
+                    // 获取要删除的名字
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;
+                    // name = tr.children[0].innerHTML
+                    // var name =tr.firstChild;是不可以的，因为会返回包括文本节点在内的第一个节点
+                    // 提示框
+                    if(confirm("确认删除"+name+"?")){
+                
+                    // 删除tr（自杀）
+                    tr.parentNode.removeChild(tr);
+                    }              
+                }
+        window.onload = function(){
+            // 点击超链接后，删除员工信息
+            // 获取所有超链接
+            // 新加上去的员工信息，是在绑定完了以后再添加的，所以新加上去的信息要自己给自己绑定一个响应函数
+            aAll = document.getElementsByTagName("a");
+            for(var i = 0;i < aAll.length;i++)
+            {
+                // 点击超链接后，需要删除这个超链接所在的一行
+                // 记得使用this,点击哪个超链接，this就是谁
+                // 删除之前弹出提示框
+                /* 
+                    confirm()用于弹出一个带有确认和取消按钮的提示框
+                    需要一个字符串作为参数，该字符串将会作为提示文字显示出来
+                    确认返回true，取消返回false
+                */
+                aAll[i].onclick = delA;
+            }
+            // 添加信息
+            /* 点击按钮后将信息添加到表格中 */
+            // 为提交按钮绑定一个单击响应函数
+            var addButton = document.getElementById("submit");
+            addButton.onclick = function(){
+                // 获取用户填写的信息
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var salary = document.getElementById("salary").value;
+                // 写入表单
+                // 新建tr
+                /* var tr = document.createElement("tr");
+                var tName = document.createElement("td");
+                tName.innerHTML = name;
+                var tEmail = document.createElement("td");
+                tEmail.innerHTML = email;
+                var tSalary = document.createElement("td");
+                tSalary.innerHTML = salary;
+                var tDelete = document.createElement("td");
+                var link = document.createElement("a");
+                link.innerHTML = "Delete"
+                link.href = "javascript:;";
+                tDelete.appendChild(link);
+               
+                tr.appendChild(tName);
+                tr.appendChild(tEmail);
+                tr.appendChild(tSalary);
+                tr.appendChild(tDelete); */
+                //简单写法
+                var tr = document.createElement("tr");
+                tr.innerHTML ="<td>"+name+"</td>"+
+                                "<td>"+email+"</td>"+
+                                "<td>"+salary+"</td>"+
+                                "<td>"+"<a href='javascript:;'>Delete</a>"+"</td>";
+                var table = document.getElementsByTagName("table")[0];
+                // 获取tbody
+                var tbody = table.getElementsByTagName("tbody")[0];
+                tbody.appendChild(tr);
+                 // 为新加入的link绑定一个单击响应函数
+                 link = tr.getElementsByTagName("a")[0];
+                link.onclick = delA;
+                
+
+            }
+           
+
+
+        };
+      
+
+     </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>Tom@123.com</td>
+            <td>4300</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Anne</td>
+            <td>Anne@123.com</td>
+            <td>7500</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jenny</td>
+            <td>Jenny@123.com</td>
+            <td>12000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+    </table>
+    <div>
+        <h2>添加新员工</h2>
+        <p>Name: </p><input type="text" id="name">
+        <p>Email: </p><input type="text" id="email">
+        <p>Salary: </p><input type="text" id="salary"><br>
+        <button id="submit">Submit</button>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /* 
+            History
+            - 操作浏览器向前向后翻页
+            - 属性
+                length：返回历史记录中URL的数量
+        */
+    //    alert(history.length);
+       var btn = document.getElementById("btn");
+       btn.onclick = function(){
+        /* 
+            back():回到上一个页面,作用等同于浏览器的回退按钮
+            forward():前进一个页面
+            go(n):跳转到指定页面，需要整数作为参数，表示向前跳转n个页面，负数则为向后跳转
+        */
+            // history.back();
+            // history.forward()
+            history.go(-2);
+       };
+        };
+        
+       
+    </script>
+</head>
+<body>
+    <h1>History</h1>
+    <button id="btn">点我</button>
+    <a href="./21.BOM.html">bom</a>
+</body>
+</html>

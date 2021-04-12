@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            var box1 = document.getElementById("box1");
+            btn01.onclick = function(){
+                /* 
+                    clientWidth
+                    clienHeight
+                     - 这两个属性可以获取元素的可见宽高(内容区+padding)，不包括边框
+                     - 如果设置了overflow为scroll，那么滚动条的宽度不算在clientWidth/clientHeight里
+                     - 如设置width = 300px，box1.clientHeight = 300- 滚动条默认厚度；
+                     - 这些属性不带px，返回的是一个数字，可以直接计算
+                     - 只读属性，不能用于修改
+                     - 只能通过style改
+                */
+            //    alert(box1.clientHeight);
+               /* 
+                    offsetWidth
+                    offsetHeight
+                    - 这两个属性可以获取元素的全部宽高(内容区+padding+边框)
+                     - 这些属性不带px，返回的是一个数字，可以直接计算
+                     - 只读属性，不能用于修改
+                     - 只能通过style改
+               */
+              /* 
+                    offsetParent
+                    - 获取当前元素的定位父元素
+                    - 会获取到最近的开启定位的祖先元素(注意和包含块的区别)
+                    - 如果所有元素都没有开启定位，返回body
+              */
+            //  var op = box1.offsetParent;
+            //  alert(op);
+            /* 
+                offsetLeft
+                offsetTop
+                - 当前元素相对于其定位元素（就是offsetParent）的水平/垂直偏移量
+            */
+        //    alert(box1.offsetTop);
+            /* 
+                scrollWidth
+                scrollHeight
+                - 可以获取元素整个滚动区域的高度和宽度
+            */
+            /* 
+                scrollLeft
+                - 获取水平滚动条滚动的距离，初值为0
+                scrollTop
+                - 获取垂直滚送条滚动的距离，初值为0
+                当满足scollHeight - scrollTop = clientHeight,说明垂直滚动条滚到底
+                水平同理
+                作用：阅读协议滑到底才让你注册
+            */
+            };
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <br><br>
+    <button id="btn01">woow</button>
+</body>
+</html>

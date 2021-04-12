@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 1;
+        /* 
+            延时调用：一个函数隔一段时间后再执行，而且只会执行一次
+            应用：15s广告
+
+            延时调用和定时调用是可以互相代替的，在开发中，可以自行选择
+        */
+        setTimeout(
+            function(){
+                console.log(num++);
+            },3000
+        );
+        /* 
+            clearTimeout(timer)取消延时调用
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

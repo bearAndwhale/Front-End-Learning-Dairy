@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1000px;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 200px;
+            top: 200px ;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+                拖拽box1元素
+                 - 拖拽的流程
+                    1.当鼠标在被拖拽元素按下时，开始拖拽onmousedown
+                    2.鼠标移动时，被拖拽元素跟随鼠标移动onmousemove
+                    3.当鼠标松开时，被拖拽元素被固定在当前位置onmouseup
+             */
+            function drag(obj){
+                obj.onmousedown = function(event){
+                /* 
+                    设置box1捕获所有事件
+                    这样即使不小心选到别的元素，也会是box1自己响应
+                    鼠标松开，停止捕获
+                */
+                //    if(box1.setCapture){
+                //         box1.setCapture();
+                //    }
+                /* 和if语句同理，有就执行，返回第二个函数的值 */
+                obj.setCapture && obj.setCapture();
+                
+                    // 按下鼠标，开始让box1随着鼠标移动
+                /*  鼠标的位置不能变
+                        求出div偏移量：鼠标.clientX - 元素.offsetLeft
+                                    鼠标.clientY - 元素.offsetTop 
+                        box1在移动的时候要算上这个偏移量 
+                    */
+                    
+                    event = event||window.event;
+                    var x = event.clientX - obj.offsetLeft;
+                    var y = event.clientY - obj.offsetTop;
+
+                // 给document绑定onmousemove
+                document.onmousemove = function(event){
+                        // box1随着鼠标移动
+                        // 兼容
+                        event = event||window.event;
+                        var cx = event.clientX - x;
+                        var cy = event.clientY - y;
+                        // var st = document.body.scrollTop||document.documentElement.scrollTop;
+                        // var sl = document.body.scrollLeft||document.documentElement.scrollLeft;
+                        obj.style.left = cx+"px";
+                        obj.style.top = cy+"px";
+                    };
+                    // 松开鼠标，box1固定位置
+                    // 取消onmousemove事件
+                    /*
+                        问题1：
+                        当移动到兄弟元素上的时候，由于是平级无法冒泡，此时松开鼠标是兄弟元素的事件
+                        box1会继续移动而不会停下
+                        解决：onmouseup设置为document的事件
+                        问题2：
+                        onmouseup事件并没有取消，在document内每一次松开鼠标，都会触发onmouseup事件
+                        这是不必要的
+                        解决：取消onmouseup事件
+                    */
+                    document.onmouseup = function(){
+                        document.onmousemove = null;
+                        // 取消onmouseupup
+                        document.onmouseup = null;
+                        
+                        obj.releaseCapture && obj.releaseCapture();
+                    };      
+                    /* 
+                        当我们拖拽一个网页中的内容时，浏览器默认会去搜索引擎搜索这个内容
+                        会导致拖拽功能异常，这个是浏览器的默认行为
+                        如果不希望发生这个行为，可以通过return false;
+                        IE8 不行
+
+                    */ 
+                /* 
+                        当一个元素设置setCapture(),这个元素会把下一次所有的鼠标按下的相关事件捕获到自身
+                        然后应用自身的响应函数，只有用一次（点别人就是在点我）
+                        只有IE有，火狐不会报错，chrome会出错
+                */   
+                return false;
+            };
+        }
+            
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var img1 = document.getElementById("img1");
+            drag(box1);
+            drag(box2);
+            drag(img1);
+
+
+            
+        };
+    </script>
+</head>
+<body>
+    <p>文字</p>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <!-- 注意拖拽图片要开启绝对定位 -->
+    <img src="../pic/1.jpg" id="img1" alt="zhu" style="position: absolute; left: 500px;">
+</body>
+</html>

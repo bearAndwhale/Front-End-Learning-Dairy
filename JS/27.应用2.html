@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            left:0;
+            background-color: bisque;
+            position: absolute;
+        }
+    </style>
+    <script>
+    window.onload = function(){
+        function getStyle(obj , name){
+        return getComputedStyle(obj,null)[name]?getComputedStyle(obj,null)[name]:obj.getCurrentStyle[name];
+        }
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var timer;
+      
+        // 向右移动：left逐渐增大   
+        btn01.onclick = function(){
+            moveBox(box1,10,800);
+  
+        };
+        btn02.onclick = function(){
+            moveBox(box1,10,100);
+  
+        };
+        /* 
+            obj:移动对象
+            speed：移动速度
+            target:移动的目标位置
+            根据目标的现在位置，判断往左还是往右
+
+        */
+        function moveBox(obj,speed,target){
+            clearInterval(timer);
+            var oldLeft = parseInt(getStyle(obj,"left")); 
+             // 向左
+            if(oldLeft > target)
+                {
+                    speed = -speed;
+                }
+            timer = setInterval(function(){
+                oldLeft = parseInt(getStyle(obj,"left"));
+            //    这个if一定不能写在定时器里面，两次判断，speed两次负号，导致后面判断的时候徐州弄错条件，直接赋值
+                // if(oldLeft > target)
+                // {
+                //     speed = -speed;
+                // } 
+                var newLeft = oldLeft + speed;
+                if(speed < 0 && newLeft < target || speed > 0 && newLeft > target)
+                {
+                    newLeft = target;
+                }
+                obj.style.left = newLeft + "px";
+            },30);   
+        }
+    };
+       
+    </script>
+</head>
+<body>
+    <button id="btn01">向右移动box1</button>
+    <button id="btn02">向左移动box1</button>
+    <br><br>
+    <div id="box1" style="left: 500px;"></div>
+    <div style="width: 0;height: 1000px; position: absolute;top:0;border-left: black solid 1px;left: 800px;"></div>
+</body>
+</html>
