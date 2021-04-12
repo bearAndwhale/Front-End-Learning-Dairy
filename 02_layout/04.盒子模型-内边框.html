@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            
+            .box1{
+              
+                width: 200px;
+                height: 200px;
+                background-color: teal;
+                border:solid 10px orange;
+                /* 
+                    内边距（padding）
+                    -可以指定四个方向，规则与border相同
+                    -一共有四个方向的内边距
+                        padding-top
+                        padding-right
+                        padding-bottom
+                        padding-left
+                    -内边距的设置会影响盒子大小
+                    -背景颜色会延伸到内边距
+
+                    -盒子的可见框总大小：内容区 内边距 边框
+
+                 */
+                 padding-top: 100px;
+                 padding-right: 100px;
+                 padding-bottom: 100px;
+                 padding-left: 100px;
+                
+
+            }
+            .inner{
+                /*内容区*/               
+                 width: 200px;
+                height: 200px;
+                background-color: peru;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1"><div class="inner"></div></div>
+        
+    </body>
+</html>

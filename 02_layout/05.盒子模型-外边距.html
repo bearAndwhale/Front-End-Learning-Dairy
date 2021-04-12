@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            
+            .box1{
+              
+                width: 200px;
+                height: 200px;
+                background-color: teal;
+                border:solid 10px orange;
+                /* 
+                    外边距（margin）
+                    -不会影响盒子可见框的大小,会影响实际的大小
+                    -会影响盒子的位置
+                    -有四个方向
+                        margin-top
+                            -设置正值，元素向下移动
+                            -设置负值，往上移动（反向）
+                        margin-right
+                            默认不会产生任何效果
+                        margin-bottom
+                            -元素在页面是自左向右排列的，若设置左上外边距，元素会移动自己
+                             设置下右，会移动别的元素
+                        margin-left
+                             -设置正值，元素向右移动
+                    
+
+                */
+                margin-top: 100px;
+                margin-left: -100px;
+                /* margin-right: 100px; */
+                margin-bottom: -100px;
+                /* 简写 */
+                margin:100px;
+            }
+            .box2{
+
+            width: 200px;
+            height: 100px;
+            background-color: rosybrown;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        
+    </body>
+</html>

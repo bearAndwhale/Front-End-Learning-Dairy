@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            .outer{
+                background-color: teal;
+                /* 默认情况下，父元素高度被内容撑开 */
+            }
+            .inner{
+                height: 100px;
+                width:100px;
+                background-color: yellow;
+                margin-bottom: 100px;
+            }
+            .box1{
+                width: 200px;
+                height: 200px;
+                background-color: teal;
+                overflow: auto;
+            }
+            .box2{
+                width: 100px;
+                height: 400px;
+                background-color: orange;
+            }
+            /* 
+                子元素是在父元素的内容区排列的
+                 如果子元素大小超过了父元素，子元素就会从父元素溢出
+                 使用overflow属性设置父元素如何处理这个问题
+
+                 可选值
+                  visible 默认值 子元素会溢出，会显示
+                  hidden 溢出的内容会被剪裁
+                  scroll 滚动 生成垂直水平两个方向的滚动条，通过滚动条查看完整内容
+                  auto 根据方向生成滚动条
+                overflow-x:单独处理水平方向
+                overflow-y：单独处理垂直方向
+             */
+
+        </style>
+    </head>
+    <body>
+       <!-- <div class="outer">
+        
+            <div class="inner"></div>
+            <div class="inner"></div>
+
+       </div> -->
+       <div class="box1">
+           <div class="box2">
+
+           </div>
+       </div>
+        
+    </body>
+</html>

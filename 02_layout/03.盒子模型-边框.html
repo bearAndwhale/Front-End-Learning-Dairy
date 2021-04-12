@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            
+            .box1{
+              
+                width: 200px;
+                height: 200px;
+                background-color: teal;
+                /* 
+                    边框：属于盒子边缘，边框里边属于盒子内部，出了边框都是盒子的外部      
+                    设置边框，至少设置三个样式
+                        边框宽度：border-width(可以省略不写，默认值为3px)
+                            -指定四个方向的值
+                                -四个值 上 右 下 左,顺时针
+                                -三个值 上 左右 下
+                                -两个值 上下 左右
+                                一个值 上下左右
+                        边框颜色：border-color(可以省略 默认值为color值（背景色，前景色）)
+                        边框风格：border-style
+                            -solid
+                            -dotted
+                            -double
+                            -dashed 虚线
+
+                            默认值是none，没有边框
+                    边框的大小会影响到盒子的大小  
+                 */
+                 
+                 border-width: 10px;
+                 /* 
+                    border-xxx-width:用来单独指定某一个边框（color/style同理）
+                    xxx:top right bottom left
+                  */
+                 border-top-width: 10px;
+                 border-color: tomato red blue khaki;
+                 border-style: dotted ;
+
+                 /* 
+                    border简写属性，同时设置三个属性，没有顺序要求
+                    还有border-xxx 分别设置四个边
+                  */
+                  border:solid 10px orange;
+                  border-top:orange double 10px;
+                  border-right: none;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1"></div>
+    </body>
+</html>

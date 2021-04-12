@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <style>
+            .box1{
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+                /* 
+                    outline用来设置轮廓线，用法和border一模一样
+                        和border不同的点在于不会影响可见框的大小（outline再宽，整个box1的大小依然是200X200）
+                        border的话，可见框大小会变为220X220
+                 */
+                outline: 10px red solid;
+                /* box-shadow:用来设置阴影效果，同样不会影响可见框大小 */
+                /* 
+                    第一个值：水平偏移量（相当于margin-left）正值向右，负值向左
+                    第二个值：垂直偏移量（相当于margin-top）正值向下，负值向上
+                    第三个值：模糊半径（越大越模糊）
+                    第四个值：阴影颜色：一般是rgba(0,0,0,.3)
+                 */
+                box-shadow: 20px 20px 10px rgba(0,0,0,0.3);
+            }
+            .box2{
+                width: 200px;
+                height: 200px;
+                background-color: aqua;
+                border-top-right-radius: 50px 100px;
+                /*
+                    border-rodius用来设置圆角,设置的是圆的半径大小,可以分别制定四个角的圆角（顺时针）
+                    四个值：左上开始 顺时针
+                    三个值：左上 （右上+左下） 右下
+                    两个值：左上+右下 右上+左下
+                    一个值：都一样
+
+                    一个参数是圆，两个参数是椭圆
+                    border-top-left-radius
+                    border-top-right-radius
+                    border-bottom-left-radius
+                    border-bottom-right-radius
+                    
+                 */
+                 border-radius:10px / 20px ;
+                 /* 圆形 */
+                 border-radius: 50%;
+                
+            }
+        </style>
+	</head>
+	
+	<body>
+        <div class="box1"></div>
+        <span>hello</span>
+        <div class="box2"></div>
+    </body>
+</html>

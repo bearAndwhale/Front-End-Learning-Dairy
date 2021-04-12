@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            .s1{
+                /* 
+                    -行内元素不支持设置宽度和高度
+                    -内容区大小是由内容撑开的
+                    -可以设置padding，border,margin,
+                     不会影响布局（下面元素的位置不会变，只是被遮挡了）
+                 */
+                background-color: palegreen;
+                /* padding: 100px;
+                border:red solid 10px; */
+            }
+            .box1{
+                width: 200px;
+                height: 200px;
+                background-color: turquoise;
+            }
+            a{
+                /* display 用来设置元素显示的类型
+                        -inline
+                        -block
+                        -inline-block:可以设置wh，又不会独占一行
+                        -table 表格
+                        -none 隐藏元素 不显示（位置不占）
+                    visibility 设置显示状态
+                        -visible
+                        -hidden 元素隐藏（保留位置）
+                 */
+                background-color: teal;
+                width: 100px;
+                height: 100px;
+
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <span class="s1">我是span</span>
+        <a href="javascript:;">超链接</a>
+        <a href="javascript:;">超链接</a>
+        <div class="box1"></div>
+        
+    </body>
+</html>

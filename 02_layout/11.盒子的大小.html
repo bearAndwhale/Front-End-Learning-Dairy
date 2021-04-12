@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>doc</title>
+        <style>
+            .box1{
+                width: 100px;
+                height: 100px;
+                background-color: #bfa;
+                border: 10px solid red;
+                /* 可见框大小：内容区 padding border 之和
+                    上面的盒子：140X140
+
+                    box-sizing:设置计算盒子大小的计算方式，也就是设置width和height的作用范围
+                        可选值：
+                            content-box:默认值，width和height用来指定内容区的大小
+                            border-box：width和height用来指定内容区+padding+border的大小(不包括margin)
+                 */
+                 box-sizing:border-box;
+            }   
+        </style>
+	</head>
+	
+	<body>
+        <div class="box1"></div>
+    </body>
+</html>

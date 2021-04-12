@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <style>
+            .outer{
+                width: 800px;
+                height: 200px;
+                border:red solid 10px;
+            }
+            .inner{
+               
+                width: 200px;
+                height: 200px;
+                background-color: tomato;
+                margin-left: 100px;
+                /* 
+                    元素在其父元素中的位置由以下几个属性共同决定
+                        margin-left 
+                        border-left
+                        padding-left
+                        width
+                        padding-right
+                        border-right
+                        margin-right
+                    一个元素在其父元素中，必须满足以下等式：
+                     -以上之和=父元素内容区的width（必须满足）
+                    若相加结果使等式不成立，称为过度约束，浏览器会自动调整
+                    -若7个值中没有为auto的情况，浏览器会自动调整margin-right使等式成立
+                    -有三个值可以设置为auto
+                        width
+                        margin-left
+                        margin-right
+                    -如果某个值为auto，则会调整auto的那个值使等式满足
+                    -如果将width和一个margin都设置为auto，则宽度会调整到最大，margin会被设置为0
+                    -如果三个值都设置为auto，则宽度最大，margin为0
+                    -如果将两个外边距设置为auto，width固定，则将会把外边距设置为相同的值
+                        经常利用这个特点，使一个元素在其父元素中水平居中
+                        如：
+                        width:xxxpx;
+                        margin:0 auto;
+
+                    如果想要一个元素水平居中，那么就必须调整它的margin值左右相等
+                    因为水平方向必须满足等式，而如果width设置为auto，会自动调整width最大
+                    所以width必须固定，把margin设为auto，则会实现
+                 */
+            }
+        </style>
+    </head>
+    <body>
+       <div class="outer">
+
+            <div class="inner"></div>
+
+       </div>
+        
+    </body>
+</html>

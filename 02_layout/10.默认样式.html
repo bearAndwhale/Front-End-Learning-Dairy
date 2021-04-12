@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Doc</title>
+        <link rel="stylesheet" href="./css/">
+        <style>
+            /* 
+                -通常情况，浏览器会添加默认样式
+                -默认样式的存在会影响布局，编写网页时，必须去除默认样式（pc端）
+
+
+
+             */
+             body{
+                 margin: 0;
+             }
+             p{
+                 margin: 0;
+             }
+             ul{
+                 margin: 0;
+                 padding: 0;
+                 list-style: none;/* 去除项目符号 */
+             }
+             /* 使用通配符 */
+             *{
+                 margin:0;
+                 padding: 0;
+                              }
+            /* 引入css */
+            
+            .box1{
+                width: 100px;
+                height: 100px;
+                border:solid 1px black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="box1"></div>
+        <p>我是一个段落</p>
+        <p>我是一个段落</p>
+        <p>我是一个段落</p>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        
+    </body>
+</html>
